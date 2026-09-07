@@ -1,0 +1,15 @@
+/opt/1panel/apps/openresty/openresty/log/feiyang-wiki.access.log
+/opt/1panel/apps/openresty/openresty/log/feiyang-wiki.error.log {
+    daily
+    maxsize 20M
+    rotate 14
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 0640 root root
+    sharedscripts
+    postrotate
+        /usr/bin/docker exec 1Panel-openresty-evhO nginx -s reopen > /dev/null 2>&1
+    endscript
+}

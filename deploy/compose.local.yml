@@ -1,0 +1,19 @@
+name: feiyang-wiki-dev
+services:
+  answer:
+    image: feiyang/answer-runtime:2.0.2-login-b43aa249b983
+    pull_policy: never
+    ports:
+      - "127.0.0.1:9080:80"
+    volumes:
+      - ../runtime/answer:/data
+    env_file:
+      - ../runtime/answer.local.env
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: 0.75
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

@@ -1,0 +1,19 @@
+{% extends 'upstream/main.html' %}
+{% block site_meta %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{ (page.meta.description if page and page.meta.description else config.site_description) | e }}">
+  <meta name="generator" content="MkDocs {{ mkdocs_version }}; OI Wiki Material b80fbeb">
+  <link rel="icon" href="{{ config.theme.favicon | url }}">
+{% endblock %}
+{% block fonts %}
+  <link rel="stylesheet" href="{{ 'assets/fonts/fonts.css' | url }}">
+{% endblock %}
+{% block analytics %}{% endblock %}
+{% block extrahead %}
+  {% for stylesheet in config.extra.community_css %}<link rel="stylesheet" href="{{ stylesheet | url }}">{% endfor %}
+{% endblock %}
+{% block scripts %}
+  <script src="{{ 'assets/vendor/material/bundle.56ea9cef.min.js' | url }}"></script>
+  <script type="module" src="{{ config.extra.community_js | url }}"></script>
+{% endblock %}

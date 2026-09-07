@@ -1,0 +1,48 @@
+{
+  "name": "feiyang-wiki",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build-site.mjs",
+    "preview": "node scripts/dev.mjs --no-watch",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "test:mail": "playwright test --config playwright.mail.config.ts",
+    "content:check": "node scripts/content.mjs --check",
+    "qa:start": "docker compose -f deploy/compose.local.yml up -d",
+    "qa:stop": "docker compose -f deploy/compose.local.yml stop",
+    "qa:setup": "node scripts/setup-answer.mjs",
+    "env:init": "node scripts/init-env.mjs",
+    "health": "node scripts/health.mjs"
+  },
+  "dependencies": {
+    "@fontsource/fira-mono": "5.3.0",
+    "@fontsource/fira-sans": "5.3.0",
+    "@lucide/vue": "1.41.0",
+    "dompurify": "3.4.15",
+    "gray-matter": "4.0.3",
+    "markdown-it": "14.3.1",
+    "serve-handler": "6.1.7",
+    "ulid": "3.0.1",
+    "vue": "3.5.42",
+    "yaml": "2.9.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@vitejs/plugin-vue": "5.2.4",
+    "mailparser": "^3.9.22",
+    "smtp-server": "^3.19.8",
+    "typescript": "5.9.2",
+    "vite": "6.4.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "overrides": {
+    "vite": "$vite",
+    "markdown-it": "$markdown-it",
+    "yaml": "$yaml"
+  }
+}

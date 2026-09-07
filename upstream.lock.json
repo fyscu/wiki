@@ -1,0 +1,6 @@
+{
+  "wiki": { "repository": "https://github.com/OI-wiki/OI-wiki", "commit": "2c7d9e82d9504de980c3edbd34270dd71413f08e" },
+  "theme": { "repository": "https://github.com/OI-wiki/mkdocs-material", "commit": "b80fbeb86b02065fcfdc4ffe74f2cbbb577121f6", "path": "vendor/oi-material/material/templates", "license": "MIT" },
+  "answer": { "version": "2.0.2", "commit": "3b9f1370612e690a0b7f230f05e688930db4c6d3", "patch": "patches/answer-username-login.patch", "runtime_image": "feiyang/answer-runtime:2.0.2-login-b43aa249b983", "linux_binary_sha256": "b43aa249b9834f9174517864894a110a0c83e03cedd5cfb01c2ead2f624c0b89" },
+  "reviewer": { "repository": "https://github.com/apache/answer-plugins", "commit": "27f129f9ef49d2e49b0fae20292ab36963cd016a" }
+}

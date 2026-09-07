@@ -1,0 +1,75 @@
+site_name: 飞扬 Wiki
+site_url: https://wiki.feiyang.ac.cn/
+site_description: 四川大学飞扬俱乐部知识库
+site_author: 四川大学飞扬俱乐部
+docs_dir: docs
+site_dir: .site
+use_directory_urls: true
+copyright: Copyright &copy; 2026 四川大学飞扬俱乐部
+
+nav:
+  - 简介:
+      - 开始阅读: index.md
+      - 关于本项目: intro/about.md
+      - 内容约定: intro/content.md
+  - 维修知识:
+      - 维修知识概述: handbook/index.md
+      - 启动与引导:
+          - 计算机启动与排障: handbook/startup.md
+  - 知识问答:
+      - 全部问题: questions.md
+      - 发起提问: ask.md
+      - 审核队列: review.md
+  - 参与贡献:
+      - 参与贡献: contribute.md
+
+theme:
+  name: null
+  custom_dir: vendor/oi-material/material/templates
+  static_templates: [404.html]
+  language: zh
+  direction: ltr
+  palette:
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      primary: white
+      accent: red
+      toggle: { icon: material/weather-sunny, name: 切换深色模式 }
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle: { icon: material/weather-night, name: 切换浅色模式 }
+  logo: images/manual/club-mark.webp
+  favicon: images/manual/club-mark.webp
+  font: { text: Fira Sans, code: Fira Mono }
+  icon: {}
+  features: [navigation.tabs, navigation.instant, content.code.copy]
+  include_search_page: false
+  search_index_only: true
+
+plugins:
+  - search:
+      lang: [zh, en]
+      separator: '[\s\-\u200b]+'
+  - toggle-sidebar: { theme: material, toggle_button: all }
+
+hooks: [hooks/site.py]
+extra_css: [_static/css/oi-extra.css, _static/css/feiyang.css]
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - toc:
+      permalink: ''
+      slugify: !!python/name:pymdownx.slugs.uslugify
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tasklist: { custom_checkbox: true }
+  - pymdownx.tabbed: { alternate_style: true }
+extra:
+  generator: false
+  pagetime: off

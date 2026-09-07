@@ -1,0 +1,72 @@
+{
+  "title": "四川大学飞扬俱乐部《维修手册》",
+  "source_sha256": "37773af64b4e380f2be284a4c12ac304afdf2e89eae3874b6c776f3155a1fda4",
+  "pdf_pages": 212,
+  "printed_page_offset": -1,
+  "assets": [
+    {
+      "file": "/images/manual/club-mark.webp",
+      "pdf_page": 1,
+      "printed_page": 0,
+      "width": 367,
+      "height": 491
+    },
+    {
+      "file": "/images/manual/motherboard.webp",
+      "pdf_page": 19,
+      "printed_page": 18,
+      "width": 500,
+      "height": 420
+    },
+    {
+      "file": "/images/manual/m2-connectors.webp",
+      "pdf_page": 24,
+      "printed_page": 23,
+      "width": 500,
+      "height": 357
+    },
+    {
+      "file": "/images/manual/memory.webp",
+      "pdf_page": 31,
+      "printed_page": 30,
+      "width": 450,
+      "height": 299
+    },
+    {
+      "file": "/images/manual/hard-drive.webp",
+      "pdf_page": 33,
+      "printed_page": 32,
+      "width": 300,
+      "height": 249
+    },
+    {
+      "file": "/images/manual/graphics-card.webp",
+      "pdf_page": 37,
+      "printed_page": 36,
+      "width": 533,
+      "height": 300
+    },
+    {
+      "file": "/images/manual/boot-process.webp",
+      "pdf_page": 56,
+      "printed_page": 55,
+      "width": 836,
+      "height": 188
+    },
+    {
+      "file": "/images/manual/uefi.webp",
+      "pdf_page": 66,
+      "printed_page": 65,
+      "width": 573,
+      "height": 458
+    },
+    {
+      "file": "/images/manual/repair-tools.webp",
+      "pdf_page": 131,
+      "printed_page": 130,
+      "width": 444,
+      "height": 231
+    }
+  ],
+  "editorial_note": "节选整理；原文件保留在项目目录之外。"
+}

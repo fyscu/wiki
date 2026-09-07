@@ -1,0 +1,54 @@
+name: Wiki Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wiki-checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and Validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install Python Dependencies
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install -r requirements.txt
+      - name: Install Node Dependencies
+        run: npm ci
+      - name: Unit Tests
+        run: npm test
+      - name: Validate Article Metadata
+        run: npm run content:check
+      - name: Check Generated Proxy Configuration
+        run: |
+          node scripts/nginx-api.mjs
+          git diff --exit-code -- deploy/community-api.conf deploy/community-api-production.conf
+      - name: Build Wiki
+        run: npm run build
+      - name: Package Preview
+        run: node scripts/package-site.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wiki-preview-${{ github.sha }}
+          path: .cache/wiki-dist.tar.gz
+          if-no-files-found: error
+          retention-days: 7

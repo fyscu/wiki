@@ -1,0 +1,7 @@
+# Versions used by the pinned OI Wiki deployment.
+mkdocs==1.5.3
+Markdown==3.9
+pymdown-extensions==11.0.1
+mkdocs-toggle-sidebar-plugin==0.0.8
+beautifulsoup4==4.15.0
+requests==2.34.2

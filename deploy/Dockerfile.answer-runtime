@@ -1,0 +1,7 @@
+FROM scratch
+COPY --chmod=755 answer /answer
+COPY ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+VOLUME ["/data"]
+EXPOSE 80
+ENTRYPOINT ["/answer"]
+CMD ["run", "-C", "/data"]

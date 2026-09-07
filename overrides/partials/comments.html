@@ -1,0 +1,7 @@
+{# Replace upstream's OI-specific attribution; discussions live in the article widget. #}
+{% if page and page.meta.manual_pages %}
+<aside class="wiki-source-note">
+  参考：四川大学飞扬俱乐部《维修手册》第 {{ page.meta.manual_pages | join('–') }} 页。
+  {% if page.meta.updated %}更新：{{ page.meta.updated }}。{% endif %}
+</aside>
+{% endif %}

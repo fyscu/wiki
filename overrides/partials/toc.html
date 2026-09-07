@@ -1,0 +1,5 @@
+{% if page and page.meta.qa_outline %}
+<nav class="md-nav md-nav--secondary" aria-label="目录"><label class="md-nav__title" for="__toc">目录</label><ul class="md-nav__list">
+{% for item in page.meta.qa_outline %}<li class="md-nav__item"><a href="#{{ item.id }}" class="md-nav__link"><span class="md-ellipsis">{{ item.title }}</span></a></li>{% endfor %}
+</ul></nav>
+{% else %}{% include 'upstream/partials/toc.html' %}{% endif %}

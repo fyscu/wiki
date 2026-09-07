@@ -1,0 +1,10 @@
+{
+  "from_email": "",
+  "from_name": "飞扬 Wiki",
+  "smtp_host": "",
+  "smtp_port": 465,
+  "encryption": "SSL",
+  "smtp_username": "",
+  "smtp_password": "",
+  "smtp_authentication": true
+}

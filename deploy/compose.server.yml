@@ -1,0 +1,26 @@
+name: feiyang-wiki
+services:
+  answer:
+    image: feiyang/answer-runtime:2.0.2-login-b43aa249b983
+    pull_policy: never
+    container_name: feiyang-wiki-answer
+    labels:
+      com.feiyang.project: wiki
+      com.feiyang.stage: development
+    ports:
+      - "127.0.0.1:9080:80"
+    volumes:
+      - /opt/feiyang-wiki/qa/data:/data
+    networks: [database]
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: 0.75
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+networks:
+  database:
+    name: 1panel-network
+    external: true

@@ -1,0 +1,8 @@
+[Unit]
+Description=Sync Feiyang Wiki certificate renewed by 1Panel
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/feiyang-wiki/tools/sync-wiki-certificate.py
+UMask=0077

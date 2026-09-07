@@ -1,0 +1,137 @@
+diff --git a/internal/schema/user_schema.go b/internal/schema/user_schema.go
+index 0683a5a..fa69bd3 100644
+--- a/internal/schema/user_schema.go
++++ b/internal/schema/user_schema.go
+@@ -209,9 +209,9 @@ func (r *GetOtherUserInfoByUsernameResp) ConvertFromUserEntityWithLang(ctx conte
+ 	}
+ }
+ 
+-// UserEmailLoginReq user email login request
++// UserEmailLoginReq accepts an email address or username in the legacy e_mail field.
+ type UserEmailLoginReq struct {
+-	Email       string `validate:"required,email,gt=0,lte=500" json:"e_mail"`
++	Email       string `validate:"required,gt=0,lte=500" json:"e_mail"`
+ 	Pass        string `validate:"required,gte=8,lte=32" json:"pass"`
+ 	CaptchaID   string `json:"captcha_id"`
+ 	CaptchaCode string `json:"captcha_code"`
+diff --git a/internal/service/content/user_service.go b/internal/service/content/user_service.go
+index c1f800f..5fcee54 100644
+--- a/internal/service/content/user_service.go
++++ b/internal/service/content/user_service.go
+@@ -23,6 +23,7 @@ import (
+ 	"context"
+ 	"encoding/json"
+ 	"fmt"
++	"strings"
+ 	"time"
+ 
+ 	"github.com/apache/answer/internal/service/eventqueue"
+@@ -153,7 +154,23 @@ func (us *UserService) GetOtherUserInfoByUsername(ctx context.Context, req *sche
+ 	return resp, nil
+ }
+ 
+-// EmailLogin email login
++func (us *UserService) getLoginUser(ctx context.Context, identifier string) (*entity.User, bool, error) {
++	identifier = strings.TrimSpace(identifier)
++	if strings.Contains(identifier, "@") {
++		return us.userRepo.GetByEmail(ctx, identifier)
++	}
++	if checker.IsInvalidUsername(identifier) {
++		return nil, false, nil
++	}
++	user, found, err := us.userRepo.GetByUsername(ctx, identifier)
++	if err != nil || found || identifier == strings.ToLower(identifier) {
++		return user, found, err
++	}
++	// Registration normalizes usernames to lowercase; retain exact legacy matches.
++	return us.userRepo.GetByUsername(ctx, strings.ToLower(identifier))
++}
++
++// EmailLogin supports both email addresses and usernames without changing session handling.
+ func (us *UserService) EmailLogin(ctx context.Context, req *schema.UserEmailLoginReq) (resp *schema.UserLoginResp, err error) {
+ 	siteLogin, err := us.siteInfoService.GetSiteLogin(ctx)
+ 	if err != nil {
+@@ -162,7 +179,7 @@ func (us *UserService) EmailLogin(ctx context.Context, req *schema.UserEmailLogi
+ 	if !siteLogin.AllowPasswordLogin {
+ 		return nil, errors.BadRequest(reason.NotAllowedLoginViaPassword)
+ 	}
+-	userInfo, exist, err := us.userRepo.GetByEmail(ctx, req.Email)
++	userInfo, exist, err := us.getLoginUser(ctx, req.Email)
+ 	if err != nil {
+ 		return nil, err
+ 	}
+diff --git a/internal/service/content/user_login_test.go b/internal/service/content/user_login_test.go
+new file mode 100644
+index 0000000..1502c88
+--- /dev/null
++++ b/internal/service/content/user_login_test.go
+@@ -0,0 +1,69 @@
++package content
++
++import (
++	"context"
++	"errors"
++	"testing"
++
++	"github.com/apache/answer/internal/entity"
++	usercommon "github.com/apache/answer/internal/service/user_common"
++	"github.com/stretchr/testify/require"
++)
++
++type loginLookupRepo struct {
++	usercommon.UserRepo
++	emailCalls []string
++	nameCalls  []string
++	names      map[string]*entity.User
++	emails     map[string]*entity.User
++	err        error
++}
++
++func (r *loginLookupRepo) GetByEmail(_ context.Context, value string) (*entity.User, bool, error) {
++	r.emailCalls = append(r.emailCalls, value)
++	user, found := r.emails[value]
++	return user, found, r.err
++}
++
++func (r *loginLookupRepo) GetByUsername(_ context.Context, value string) (*entity.User, bool, error) {
++	r.nameCalls = append(r.nameCalls, value)
++	user, found := r.names[value]
++	return user, found, r.err
++}
++
++func TestGetLoginUser(t *testing.T) {
++	account := &entity.User{ID: "42", Username: "whoami", EMail: "user@example.test"}
++	for _, input := range []string{"whoami", "WhoAmI", "  whoami  ", "user@example.test", " user@example.test "} {
++		t.Run(input, func(t *testing.T) {
++			repo := &loginLookupRepo{names: map[string]*entity.User{"whoami": account}, emails: map[string]*entity.User{account.EMail: account}}
++			user, found, err := (&UserService{userRepo: repo}).getLoginUser(context.Background(), input)
++			require.NoError(t, err)
++			require.True(t, found)
++			require.Equal(t, account.ID, user.ID)
++		})
++	}
++	t.Run("does not use a display name or cross from email to username", func(t *testing.T) {
++		repo := &loginLookupRepo{names: map[string]*entity.User{"whoami": account}}
++		_, found, err := (&UserService{userRepo: repo}).getLoginUser(context.Background(), "missing@example.test")
++		require.NoError(t, err)
++		require.False(t, found)
++		require.Empty(t, repo.nameCalls)
++		_, found, err = (&UserService{userRepo: repo}).getLoginUser(context.Background(), "显示名称")
++		require.NoError(t, err)
++		require.False(t, found)
++		require.Empty(t, repo.nameCalls)
++	})
++	t.Run("exact legacy username wins over lowercase fallback", func(t *testing.T) {
++		repo := &loginLookupRepo{names: map[string]*entity.User{"Legacy": account}}
++		_, found, err := (&UserService{userRepo: repo}).getLoginUser(context.Background(), "Legacy")
++		require.NoError(t, err)
++		require.True(t, found)
++		require.Equal(t, []string{"Legacy"}, repo.nameCalls)
++	})
++	t.Run("propagates database errors without another lookup", func(t *testing.T) {
++		repo := &loginLookupRepo{err: errors.New("database unavailable")}
++		_, _, err := (&UserService{userRepo: repo}).getLoginUser(context.Background(), "WhoAmI")
++		require.ErrorIs(t, err, repo.err)
++		require.Len(t, repo.nameCalls, 1)
++	})
++}
