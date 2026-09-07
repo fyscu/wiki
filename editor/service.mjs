@@ -26,7 +26,10 @@ export async function createEditor(options) {
   let queue = Promise.resolve(), busyJob = '', lastSync = 0, refreshing = null
   const onProgress = async (id, status, extra = {}) => {
     const job = store.get('job', id)
-    if (job) store.put('job', id, { ...job, ...extra, status, updatedAt: now() })
+    const phase = ['preparing', 'building', 'built', 'preview-ready'].includes(status) ? 'building'
+      : ['syncing-tags', 'committing', 'committed', 'pushing'].includes(status) ? 'committing'
+        : ['pushed', 'deploying', 'published'].includes(status) ? 'publishing' : status
+    if (job) store.put('job', id, { ...job, ...extra, status: phase, updatedAt: now() })
   }
   async function syncTags(snapshot) {
     const authorization = tokens.get(snapshot.id)

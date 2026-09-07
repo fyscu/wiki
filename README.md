@@ -6,6 +6,8 @@
 
 文章公开阅读，用户验证邮箱后可参与问答，管理员审核首帖。登录支持邮箱或用户名。
 
+管理员可在[内容管理](https://wiki.feiyang.ac.cn/editor/)编辑文章、调整板块并一键发布，操作见[内容维护](CONTENT_WORKFLOW.md)。
+
 ## 本机运行
 
 依赖 Node.js 24、Python 3.12 和 Git。以下命令适用于 PowerShell：
@@ -26,8 +28,9 @@ npm run dev
 | 目录或文件 | 内容 |
 | --- | --- |
 | `docs/` | 文章、图片和站内页面 |
-| `mkdocs.yml` | 站点配置和导航 |
-| `community/` | 账号与问答组件 |
+| `mkdocs.yml`、`navigation.yml` | 站点配置、文章导航 |
+| `community/` | 账号、问答和内容编辑界面 |
+| `editor/` | 草稿、图片、预览与 Git 发布服务 |
 | `vendor/oi-material/` | OI Wiki 主题 |
 | `overrides/`、`hooks/` | 模板覆盖和构建钩子 |
 | `scripts/`、`deploy/` | 开发与部署工具 |

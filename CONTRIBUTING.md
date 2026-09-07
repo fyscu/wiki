@@ -1,6 +1,6 @@
 # 参与协作
 
-在新分支提交修改，通过 Pull Request 审阅后合并到 `main`。
+管理员日常维护文章使用[内容管理](CONTENT_WORKFLOW.md)。代码和批量内容修改在新分支提交，通过 Pull Request 审阅后合并到 `main`。
 
 ## 网页编辑
 
@@ -22,7 +22,7 @@ git switch -c content/your-topic
 npm test
 npm run content:check
 npm run build
-git add docs mkdocs.yml
+git add docs mkdocs.yml navigation.yml
 git commit -m "docs: update your topic"
 git push -u origin content/your-topic
 ```

@@ -1,70 +1,27 @@
 # 文章与板块维护
 
-文章存放在 `docs/`，图片存放在 `docs/images/`，导航由 `mkdocs.yml` 的 `nav` 配置。板块可按维修、软件、编程、网络或俱乐部事务划分。
+管理员登录后，从用户菜单进入[内容管理](https://wiki.feiyang.ac.cn/editor/)。文章和目录共用草稿，发布时自动提交到 GitHub 并更新网站。
 
-## 新增文章
+## 编辑与发布
 
-1. 创建 Markdown 文件，如 `docs/software/windows-update.md`。路径使用小写英文字母、数字和连字符。
-2. 生成文档 ID，填写文章信息。
-3. 将文章加入 `nav`。
+1. 选择文章或点击“新建文章”，填写标题、栏目和正文。文章页的“编辑本文”可直达编辑器。
+2. 正文自动保存，图片支持上传、粘贴和拖入。标签、维护者在标题下方填写。
+3. 在“目录”中新增、改名、移动板块，调整文章顺序，保存目录。
+4. 点击“预览”查看完整 OI Wiki 主题效果；编辑区分屏显示基础 Markdown 排版。
+5. 填写发布说明，点击“发布”。“任务”显示结果和 Git 提交。
 
-生成 ID：
+**发布会包含全部已保存草稿和目录修改。** 首期编辑权限面向管理员；多人同时修改同一篇文章时，版本冲突会要求重新载入。
 
-```powershell
-node --input-type=module -e "import {ulid} from 'ulid'; console.log(ulid().toLowerCase())"
-```
+新文章自动生成稳定的 `doc_id`，用于关联问答。路径可填写 `software/windows-update.md`；创建后保持固定，标题和所属板块可随时调整。一级板块显示在顶部，子目录显示在左侧。
 
-文章模板：
+## 历史与恢复
 
-```markdown
----
-title: Windows 更新问题处理
-doc_id: <生成的26位小写ULID>
-owners: [software-team]
-tags: [Windows, 软件使用]
-updated: 2026-09-07
----
+点击“文章历史”查看 Git 版本，选择“恢复为草稿”，检查后再次发布。“丢弃草稿”恢复已发布正文；新建文章的草稿会连同目录项移除。
 
-# Windows 更新问题处理
+草稿和待发布图片保存在服务器。预览链接有效期为一小时，服务保留最近 20 次预览。
 
-## 适用范围
+## 通过 Git 维护
 
-## 操作步骤
+文章位于 `docs/`，导航位于 `navigation.yml`，上传图片位于 `docs/images/uploads/`。文章元数据包含 `title`、`doc_id`、`owners`，可选 `tags` 和 `updated`。
 
-## 参考资料
-```
-
-`title`、`doc_id`、`owners` 为必填项。`doc_id` 用于关联问答，`owners` 记录维护负责人；页面目录由正文标题自动生成。
-
-## 新增板块
-
-创建板块概述页，如 `docs/software/index.md`，在 `nav` 中加入：
-
-```yaml
-  - 软件使用:
-      - 软件使用概述: software/index.md
-      - Windows 更新问题处理: software/windows-update.md
-```
-
-一级导航显示为顶部板块，嵌套条目显示在左侧目录。
-
-## 更新与发布
-
-- 修改正文时保留 `doc_id`，更新日期和来源。
-- 文章改名或移动后，同步导航并为旧地址配置重定向。
-- 新增问答标签由维护者运行 `npm run qa:setup` 创建；已有标签的显示名由维护者更新。
-- 删除文章前确定归档方式和旧链接去向。
-
-提交前运行 `npm run content:check` 和 `npm run build`，校验元数据并生成文章清单、搜索索引和页面。修改 `mkdocs.yml` 后需手动构建或重启预览进程。
-
-通过 [PR 审阅](CONTRIBUTING.md) 后，由维护者[发布静态包](DEPLOYMENT.md#发布静态站)。
-
-## 后续管理方案
-
-| 方案 | 用途 | 接入工作 |
-| --- | --- | --- |
-| GitHub 网页 / github.dev | 直接修改文章、图片和导航 | 已可使用 |
-| 模板生成与自动发布 | 自动填写 ID、维护导航、同步标签并发布 | 增加生成工具和发布任务 |
-| [Decap CMS](https://decapcms.org/) | 通过表单编辑文章、分类、图片和草稿 | 配置 GitHub OAuth、编辑权限和字段规则 |
-
-建议先增加模板生成和自动发布，再按编辑需求接入 Decap CMS。编辑后台可设在 `/editor/`，导航独立为普通 YAML 文件，公开页面沿用 OI Wiki 主题。
+代码或批量内容修改按[协作说明](CONTRIBUTING.md)提交。编辑器读取 `main` 的更新；通过 Git 合并的内容由维护者按[部署说明](DEPLOYMENT.md)发布。

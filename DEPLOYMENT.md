@@ -8,11 +8,30 @@
 
 | 资源 | 位置 |
 | --- | --- |
-| 静态版本 | 站点目录下 `releases/mkdocs-<hash>`，由 `index` 链接选定 |
+| 静态版本 | 站点目录下 `content/releases/`，由 `content/index` 链接选定 |
 | API 代理 | 站点目录下 `community-api.conf` |
 | Nginx 配置 | `/opt/1panel/apps/openresty/openresty/conf/conf.d/feiyang-wiki-production.conf` |
 | Answer 配置与数据 | `/opt/feiyang-wiki/compose.yaml`、`/opt/feiyang-wiki/qa/data` |
 | 发布备份 | `/opt/feiyang-wiki/backups/`，root 私有目录 |
+| 内容服务 | `/opt/feiyang-wiki-editor/app/`，systemd 服务 `feiyang-wiki-editor` |
+| 草稿与图片 | `/opt/feiyang-wiki-editor/state/`，SQLite 数据库及私有图片 |
+| 预览与构建 | `/opt/feiyang-wiki-editor/jobs/` |
+
+## 内容服务
+
+管理员通过 `/editor/` 发布文章和导航。服务以 `fy-wiki-editor`（UID 12091）运行，使用仓库专用可写 Deploy Key 提交到 `main`，构建成功后切换 `content/index`。文章问答标签随发布创建。
+
+代码更新：
+
+```sh
+sudo python3 /var/tmp/feiyang-wiki-bootstrap/deploy-editor.py --install
+sudo systemctl status feiyang-wiki-editor
+sudo journalctl -u feiyang-wiki-editor -n 50
+```
+
+安装脚本复用引导目录中的 Node、Git bundle、Python wheel 包和服务配置。调整依赖或运行环境时，同步更新这些安装材料。Node 与 Python 位于服务自己的 `runtime/` 和 `venv/`。
+
+`editor.env` 保存服务路径和 Git SSH 配置，私钥位于 `keys/`。备份时暂停内容服务，将 `state/`、`keys/`、`editor.env` 存入 root 私有备份目录，再启动服务；恢复后保留 UID 12091 的文件所有权。已发布文章另有 Git 历史。
 
 ## 发布静态站
 
@@ -87,7 +106,7 @@ npm run test:e2e
 
 测试会创建并清理专用账号与内容。本机认证和邮件测试使用 `npm run test:mail`。
 
-静态回滚：根据备份中的 `previous-release.txt` 恢复 `index`，同时恢复该次 Nginx/API 配置，检查后重载。
+静态回滚：根据备份中的 `previous-release.txt` 恢复 `content/index`，同时恢复该次 Nginx/API 配置，检查后重载。编辑器发布的历史版本位于 `content/releases/`。
 
 后端回滚：恢复备份中的 Compose 并重建 `answer` 服务，前端切换到匹配版本。数据库恢复前先核对备份后新增的数据。
 
