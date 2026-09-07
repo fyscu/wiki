@@ -5,18 +5,20 @@ import { serveStaticSite } from './static-site.mjs'
 import { communityApi } from './community-api.mjs'
 import { createQaMiddleware } from './qa-proxy.mjs'
 import { buildSite } from './build-site.mjs'
+import { editorProxy } from './editor-proxy.mjs'
 
 const port = Number(process.env.PORT || 5173)
 const upstream = process.env.QA_ORIGIN || 'http://127.0.0.1:9080'
 await buildSite()
 const api = communityApi(upstream)
 const publicApi = createQaMiddleware(upstream)
+const editor = editorProxy(process.env.EDITOR_ORIGIN)
 function staticFiles(req, res) {
   const directory = JSON.parse(readFileSync('.cache/site-current.json', 'utf8')).directory
   if (!relative(resolve('.cache'), directory).startsWith('site-build-')) { res.statusCode = 503; res.end(); return }
   return serveStaticSite(req, res, directory)
 }
-const server = createServer((req, res) => api(req, res, () => publicApi(req, res, () => staticFiles(req, res))))
+const server = createServer((req, res) => editor(req, res, () => api(req, res, () => publicApi(req, res, () => staticFiles(req, res)))))
 server.listen(port, '127.0.0.1', () => console.log(`Feiyang Wiki: http://127.0.0.1:${port}/`))
 if (!process.argv.includes('--no-watch')) {
   let timer, running = false, pending = false

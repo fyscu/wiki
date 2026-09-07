@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { MessageCircle, Plus, Check, RefreshCw } from '@lucide/vue'
-import { questionHref } from './api'
+import { MessageCircle, Plus, Check, RefreshCw, Pencil } from '@lucide/vue'
+import { questionHref, auth } from './api'
 import { docTag, buildAskPath, normalizeQuestions } from '../lib/qa.mjs'
 const props = defineProps<{ article: { id: string; title: string; revision: string; path: string } }>()
 const state = ref('loading'), items = ref<any[]>([])
@@ -16,7 +16,7 @@ async function load() {
 onMounted(load)
 </script>
 <template>
-  <section class="qa-article-section" aria-labelledby="related-questions"><div class="qa-section-head"><h2 id="related-questions"><MessageCircle :size="21" />本文问答</h2><a :href="buildAskPath(article.id)"><Plus :size="15" />针对本文提问</a></div>
+  <section class="qa-article-section" aria-labelledby="related-questions"><div class="qa-section-head"><h2 id="related-questions"><MessageCircle :size="21" />本文问答</h2><a v-if="Number(auth.user?.role_id) === 2" :href="`/editor/?article=${article.id}`"><Pencil :size="15" />编辑本文</a><a :href="buildAskPath(article.id)"><Plus :size="15" />针对本文提问</a></div>
     <p v-if="state === 'loading'" class="qa-muted">正在加载…</p>
     <div v-else-if="state === 'error'" class="qa-inline-error"><span>问答暂时无法加载。</span><button class="qa-icon-button" title="重新加载" aria-label="重新加载问答" @click="load"><RefreshCw :size="16" /></button></div>
     <p v-else-if="!items.length" class="qa-muted">还没有与本文关联的问题。</p>

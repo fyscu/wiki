@@ -1,0 +1,44 @@
+version: 1
+items:
+  - id: section-cb697d331d42573f8830
+    title: 简介
+    children:
+      - id: page-a48746cae70c44e7e105
+        title: 开始阅读
+        path: index.md
+      - id: page-bac11a5a8f406d5cccd9
+        title: 关于本项目
+        path: intro/about.md
+      - id: page-f0f3cbb54ab89bb290ff
+        title: 内容约定
+        path: intro/content.md
+  - id: section-7de424779f1178a32cbe
+    title: 维修知识
+    children:
+      - id: page-fc665ef9e0f8249e3527
+        title: 维修知识概述
+        path: handbook/index.md
+      - id: section-59733b34e45c5e50c1bc
+        title: 启动与引导
+        children:
+          - id: page-3b1e317413a38498eaab
+            title: 计算机启动与排障
+            path: handbook/startup.md
+  - id: section-a5766561923770e091d0
+    title: 知识问答
+    children:
+      - id: page-edc8a246a54dd476aed4
+        title: 全部问题
+        path: questions.md
+      - id: page-7dcf3c0693c8578d51b1
+        title: 发起提问
+        path: ask.md
+      - id: page-bd69e3d6b415bbab915a
+        title: 审核队列
+        path: review.md
+  - id: section-a73b0618e780a2527a47
+    title: 参与贡献
+    children:
+      - id: page-0e6105c1be2a32565392
+        title: 参与贡献
+        path: contribute.md

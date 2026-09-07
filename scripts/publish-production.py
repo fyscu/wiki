@@ -10,6 +10,7 @@ import tarfile
 ROOT = Path('/opt/feiyang-wiki')
 STAGE = Path('/var/tmp/feiyang-wiki-bootstrap')
 SITE = Path('/opt/1panel/apps/openresty/openresty/www/sites/wiki.feiyang.ac.cn')
+PUBLIC = SITE / 'content' if (SITE / 'content/.feiyang-wiki-editor').exists() else SITE
 CONF = Path('/opt/1panel/apps/openresty/openresty/conf/conf.d/feiyang-wiki-production.conf')
 if not (ROOT / 'owner.json').exists():
     raise RuntimeError('Wiki installation ownership marker missing')
@@ -34,7 +35,7 @@ if SITE.exists():
 SITE.mkdir(parents=True, exist_ok=True)
 (SITE / '.feiyang-wiki-owner').write_text('feiyang-wiki\n')
 release_id = hashlib.sha256((STAGE / 'wiki-dist.tar.gz').read_bytes()).hexdigest()[:12]
-release = SITE / 'releases' / ('mkdocs-' + release_id)
+release = PUBLIC / 'releases' / ('mkdocs-' + release_id)
 release.mkdir(parents=True, exist_ok=True)
 with tarfile.open(STAGE / 'wiki-dist.tar.gz') as archive:
     for entry in archive.getmembers():
@@ -49,7 +50,7 @@ tools = ROOT / 'tools'
 tools.mkdir(exist_ok=True)
 shutil.copy2(STAGE / 'sync-wiki-certificate.py', tools / 'sync-wiki-certificate.py')
 subprocess.run(['python3', str(tools / 'sync-wiki-certificate.py'), '--no-reload'], check=True)
-index = SITE / 'index'
+index = PUBLIC / 'index'
 old_target = index.readlink() if index.is_symlink() else None
 if index.exists() and old_target is None:
     raise RuntimeError('Production index is not a managed symlink')
@@ -61,7 +62,7 @@ if not (SITE / 'account-status.json').exists():
 before = {path: path.read_bytes() if path.exists() else None for path in files}
 if old_target:
     (backup / 'previous-release.txt').write_text(str(old_target))
-temporary = SITE / 'index.next'
+temporary = PUBLIC / 'index.next'
 temporary.unlink(missing_ok=True)
 temporary.symlink_to(Path('releases') / release.name)
 temporary.replace(index)

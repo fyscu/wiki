@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import re
+import yaml
 
 from bs4 import BeautifulSoup
 from jinja2 import ChoiceLoader, FileSystemLoader, PrefixLoader
@@ -21,6 +22,14 @@ def on_env(env, config, files, **kwargs):
 
 
 def on_config(config, **kwargs):
+    navigation = ROOT / 'navigation.yml'
+    if navigation.exists():
+        data = yaml.safe_load(navigation.read_text(encoding='utf-8'))
+        def convert(nodes):
+            return [{node['title']: convert(node['children']) if 'children' in node else node['path']} for node in nodes]
+        if data.get('version') != 1 or not isinstance(data.get('items'), list):
+            raise ValueError('Invalid navigation.yml')
+        config.nav = convert(data['items'])
     manifest = json.loads((ROOT / 'docs/assets/community/.vite/manifest.json').read_text())
     entry = next(value for value in manifest.values() if value.get('isEntry'))
     config.extra['community_js'] = 'assets/community/' + entry['file']

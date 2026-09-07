@@ -25,7 +25,7 @@ export async function buildSite({ assets = true } = {}) {
   const destination = resolve('.cache', `site-build-${generation}`)
   const result = spawnSync(python, ['-m', 'mkdocs', 'build', '--clean', '--site-dir', destination], { stdio: 'inherit' })
   if (result.status !== 0) throw new Error('MkDocs build failed')
-  for (const page of ['index.html', 'questions/index.html', 'ask/index.html', 'question/index.html', 'login/index.html', 'register/index.html', 'users/account-activation/index.html', 'users/password-reset/index.html', 'users/unsubscribe/index.html']) {
+  for (const page of ['index.html', 'questions/index.html', 'ask/index.html', 'question/index.html', 'login/index.html', 'register/index.html', 'editor/index.html', 'users/account-activation/index.html', 'users/password-reset/index.html', 'users/unsubscribe/index.html']) {
     if (!(await readFile(resolve(destination, page), 'utf8')).includes('</html>')) throw new Error(`Incomplete build: ${page}`)
   }
   const pointer = resolve('.cache', `site-current-${generation}.json`)

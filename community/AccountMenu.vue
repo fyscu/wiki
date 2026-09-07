@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { UserRound, LogOut, MessageCircle, ShieldCheck } from '@lucide/vue'
+import { UserRound, LogOut, MessageCircle, ShieldCheck, BookOpen } from '@lucide/vue'
 import { auth, api, clearSession, loginHref, isModerator } from './api'
 const open = ref(false)
 async function logout() { try { await api('logout', 'POST') } finally { clearSession(); open.value = false; location.assign('/') } }
@@ -14,6 +14,7 @@ async function logout() { try { await api('logout', 'POST') } finally { clearSes
       <a :href="`/questions/?username=${encodeURIComponent(auth.user.username)}`"><MessageCircle :size="16" />我的提问</a>
       <a v-if="auth.user.mail_status === 2" href="/users/account-activation/"><ShieldCheck :size="16" />验证邮箱</a>
       <a v-if="isModerator()" href="/review/"><ShieldCheck :size="16" />审核队列</a>
+      <a v-if="Number(auth.user.role_id) === 2" href="/editor/"><BookOpen :size="16" />内容管理</a>
       <button @click="logout"><LogOut :size="16" />退出登录</button>
     </nav>
   </div>

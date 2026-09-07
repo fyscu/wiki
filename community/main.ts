@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp, defineAsyncComponent } from 'vue'
 import AccountMenu from './AccountMenu.vue'
 import Login from './Login.vue'
 import AccountRecovery from './AccountRecovery.vue'
@@ -10,8 +10,9 @@ import Review from './Review.vue'
 import ArticleQuestions from './ArticleQuestions.vue'
 import { api, auth, clearSession, saveSession } from './api'
 import './style.css'
+const Editor = defineAsyncComponent(() => import('./editor/Editor.vue'))
 
-const components = { 'account-menu': AccountMenu, login: Login, 'account-recovery': AccountRecovery, unsubscribe: Unsubscribe, questions: Questions, question: Question, ask: Ask, review: Review, 'article-questions': ArticleQuestions }
+const components = { 'account-menu': AccountMenu, login: Login, 'account-recovery': AccountRecovery, unsubscribe: Unsubscribe, editor: Editor, questions: Questions, question: Question, ask: Ask, review: Review, 'article-questions': ArticleQuestions }
 const mounted = new Map<HTMLElement, ReturnType<typeof createApp>>()
 function mount() {
   for (const [element, app] of mounted) { if (!element.isConnected) { app.unmount(); mounted.delete(element) } }

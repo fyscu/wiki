@@ -10,6 +10,8 @@
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
     "test:mail": "playwright test --config playwright.mail.config.ts",
+    "test:editor-ui": "playwright test --config community/editor/tests/playwright.config.ts",
+    "editor:start": "node editor/server.mjs",
     "content:check": "node scripts/content.mjs --check",
     "qa:start": "docker compose -f deploy/compose.local.yml up -d",
     "qa:stop": "docker compose -f deploy/compose.local.yml stop",
@@ -18,13 +20,17 @@
     "health": "node scripts/health.mjs"
   },
   "dependencies": {
+    "@codemirror/lang-markdown": "6.5.2",
     "@fontsource/fira-mono": "5.3.0",
     "@fontsource/fira-sans": "5.3.0",
     "@lucide/vue": "1.41.0",
+    "cheerio": "1.2.0",
+    "codemirror": "6.0.2",
     "dompurify": "3.4.15",
     "gray-matter": "4.0.3",
     "markdown-it": "14.3.1",
     "serve-handler": "6.1.7",
+    "sharp": "0.35.4",
     "ulid": "3.0.1",
     "vue": "3.5.42",
     "yaml": "2.9.0"
@@ -38,7 +44,7 @@
     "vite": "6.4.3"
   },
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=24.0.0"
   },
   "overrides": {
     "vite": "$vite",
