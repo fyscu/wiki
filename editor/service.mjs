@@ -52,7 +52,7 @@ export async function createEditor(options) {
   }
   function article(id) { const value = store.get('article', id); if (!value) fail('文章不存在', 404); return value }
   function checkVersion(record, version) { if (!Number.isInteger(version) || record.version !== version) fail('内容已有更新，请重新载入后编辑', 409, 'conflict') }
-  function navigation() { const value = store.get('config', 'navigation'); return { version: value.version, items: value.items, dirty: value.dirty } }
+  function navigation() { const value = store.get('config', 'navigation'); return { version: value.version, items: value.items, dirty: value.dirty, conflict: Boolean(value.conflict), ...(value.conflict ? { publishedItems: value.publishedItems } : {}) } }
   function knownPaths() { return new Set([...(store.get('config', 'paths') || []), ...store.list('article').map(item => item.path)]) }
   async function refresh(force = false) {
     if (busyJob || (!force && Date.now() - lastSync < 15000)) return
@@ -75,7 +75,8 @@ export async function createEditor(options) {
             else store.remove('article', old.id)
           }
           const nav = store.get('config', 'navigation')
-          store.put('config', 'navigation', nav?.dirty ? { ...nav, publishedItems: source.items } : { items: source.items, publishedItems: source.items, version: (nav?.version || 0) + 1, dirty: false })
+          const navChanged = nav && JSON.stringify(nav.publishedItems) !== JSON.stringify(source.items)
+          store.put('config', 'navigation', nav?.dirty ? { ...nav, publishedItems: source.items, conflict: Boolean(nav.conflict || navChanged), version: nav.version + (navChanged ? 1 : 0) } : { items: source.items, publishedItems: source.items, version: (nav?.version || 0) + 1, dirty: false })
           store.put('config', 'paths', [...source.paths])
           const required = []
           visitNavigation(source.items, node => { if (source.protectedPaths.has(node.path)) required.push(node.path) })
@@ -95,6 +96,7 @@ export async function createEditor(options) {
     if (input.articleIds !== undefined && (!Array.isArray(input.articleIds) || input.articleIds.some(id => typeof id !== 'string') || new Set(input.articleIds).size !== input.articleIds.length)) fail('文章选择格式有误')
     if (kind === 'preview' && typeof input.articleId !== 'string') fail('请选择预览文章')
     const nav = store.get('config', 'navigation'), records = kind === 'preview' ? [article(input.articleId)] : input.articleIds ? input.articleIds.map(article) : store.list('article').filter(item => item.draft)
+    if (kind === 'publish' && nav.conflict) fail('源目录已有更新，请处理目录冲突后发布', 409, 'conflict')
     if (kind === 'preview') checkVersion(records[0], input.version)
     if (input.navigationVersion !== undefined) checkVersion(nav, input.navigationVersion)
     if (records.length > 200) fail('一次最多发布 200 篇文章')
@@ -165,6 +167,7 @@ export async function createEditor(options) {
           }
         }
       } catch (error) {
+        if (error.pushed && error.commit) store.put('config', 'head', error.commit)
         store.put('job', value.id, { ...store.get('job', value.id), status: 'failed', error: String(error.message || '任务失败').slice(0, 1200), finishedAt: now() })
       } finally { tokens.delete(value.id); busyJob = '' }
     })
@@ -269,7 +272,7 @@ export async function createEditor(options) {
         const record = article(match[1]); checkVersion(record, input.version); validateArticle(input)
         const old = detail(record)
         if (old.conflict) fail('源文章已有更新，请先处理版本冲突', 409, 'conflict')
-        const draft = { title: input.title.trim(), body: updateHeading(input.body, old.title, input.title.trim()), tags: input.tags, owners: input.owners, baseHash: digest(record.publishedRaw || '') }
+        const draft = { title: input.title.trim(), body: updateHeading(input.body, old.title, input.title.trim()), tags: input.tags, owners: input.owners, baseHash: digest(record.publishedRaw || ''), sourceRaw: record.draft?.sourceRaw }
         validateArticle(draft)
         if (record.docId && !draft.owners.length) fail('请填写文章负责人')
         store.transaction(() => {
@@ -294,14 +297,15 @@ export async function createEditor(options) {
         const record = article(match[1]); checkVersion(record, input.version)
         const raw = await publisher.version('docs/' + record.path, input.revision), parsed = parseArticle(raw, record.path)
         checkVersion(article(record.id), input.version)
-        record.draft = { title: parsed.title, body: parsed.body, tags: parsed.tags, owners: parsed.owners, baseHash: digest(record.publishedRaw || '') }; record.version++; record.updatedAt = now()
+        validateArticle(parsed)
+        record.draft = { title: parsed.title, body: parsed.body, tags: parsed.tags, owners: parsed.owners, baseHash: digest(record.publishedRaw || ''), sourceRaw: raw }; record.version++; record.updatedAt = now()
         store.transaction(() => { store.put('article', record.id, record); const nav = store.get('config', 'navigation'); visitNavigation(nav.items, node => { if (node.path === record.path) node.title = parsed.title }); nav.version++; nav.dirty = true; store.put('config', 'navigation', nav); touch() })
         return respond(detail(record))
       }
       if (req.method === 'PUT' && path === '/navigation') {
         const nav = store.get('config', 'navigation'); checkVersion(nav, input.version)
         const items = validateNavigation(input.items, knownPaths(), new Set(store.get('config', 'requiredPaths')))
-        store.put('config', 'navigation', { ...nav, items, version: nav.version + 1, dirty: JSON.stringify(items) !== JSON.stringify(nav.publishedItems) }); touch()
+        store.put('config', 'navigation', { ...nav, items, version: nav.version + 1, dirty: JSON.stringify(items) !== JSON.stringify(nav.publishedItems), conflict: false }); touch()
         return respond(navigation())
       }
       if (req.method === 'POST' && ['/preview', '/publish'].includes(path)) {

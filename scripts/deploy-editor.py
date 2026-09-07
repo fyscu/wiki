@@ -16,6 +16,7 @@ STAGE = Path('/var/tmp/feiyang-wiki-bootstrap')
 SITE = Path('/opt/1panel/apps/openresty/openresty/www/sites/wiki.feiyang.ac.cn')
 NODE_VERSION = 'node-v24.16.0-linux-x64'
 NODE_SHA = 'd804845d34eddc21dc1092b519d643ef40b1f58ec5dec5c22b1f4bd8fabde6c9'
+SERVICE_USER = 'fy-wiki-editor'
 parser = argparse.ArgumentParser()
 parser.add_argument('--install', action='store_true')
 args = parser.parse_args()
@@ -23,22 +24,26 @@ if not Path('/opt/feiyang-wiki/owner.json').is_file() or not (SITE / '.feiyang-w
     raise RuntimeError('Wiki ownership markers missing')
 if ROOT.exists() and not (ROOT / '.owner').is_file():
     raise RuntimeError('Existing directory is not managed by this installer')
-legacy = Path('/opt/feiyang-wiki/editor')
-try:
-    prior = pwd.getpwnam('wiki-editor')
-    if prior.pw_dir == str(legacy) and (legacy / '.owner').is_file() and not ROOT.exists():
-        subprocess.run(['usermod', '--home', str(ROOT), '--move-home', 'wiki-editor'], check=True)
-except KeyError:
-    pass
 ROOT.mkdir(mode=0o750, exist_ok=True)
 (ROOT / '.owner').write_text('feiyang-wiki-editor\n')
 try:
-    account = pwd.getpwnam('wiki-editor')
+    account = pwd.getpwnam(SERVICE_USER)
     if account.pw_dir != str(ROOT):
         raise RuntimeError('Existing editor account has a different home')
 except KeyError:
-    subprocess.run(['useradd', '--system', '--home-dir', str(ROOT), '--shell', '/usr/sbin/nologin', 'wiki-editor'], check=True)
-    account = pwd.getpwnam('wiki-editor')
+    try:
+        pwd.getpwuid(12091)
+        raise RuntimeError('Editor service UID is already assigned')
+    except KeyError:
+        pass
+    subprocess.run(['useradd', '--system', '--uid', '12091', '--user-group', '--home-dir', str(ROOT), '--shell', '/usr/sbin/nologin', SERVICE_USER], check=True)
+    account = pwd.getpwnam(SERVICE_USER)
+if ROOT.resolve() != ROOT:
+    raise RuntimeError('Editor root must be a real directory')
+if ROOT.stat().st_uid != account.pw_uid:
+    for directory, directories, files in os.walk(ROOT, followlinks=False):
+        for path in [Path(directory), *[Path(directory) / name for name in directories + files]]:
+            os.chown(path, account.pw_uid, account.pw_gid, follow_symlinks=False)
 os.chown(ROOT, account.pw_uid, account.pw_gid)
 for name in ['keys', 'state', 'jobs', 'runtime']:
     path = ROOT / name
@@ -53,20 +58,20 @@ if not node_dir.exists():
         archive.extractall(ROOT / 'runtime', filter='data')
 key = ROOT / 'keys/editor_ed25519'
 if not key.exists():
-    subprocess.run(['runuser', '-u', 'wiki-editor', '--', 'ssh-keygen', '-q', '-t', 'ed25519', '-N', '', '-C', 'feiyang-wiki-editor', '-f', str(key)], check=True)
+    subprocess.run(['runuser', '-u', SERVICE_USER, '--', 'ssh-keygen', '-q', '-t', 'ed25519', '-N', '', '-C', 'feiyang-wiki-editor', '-f', str(key)], check=True)
 known_hosts = ROOT / 'keys/known_hosts'
 shutil.copy2(STAGE / 'github-known-hosts', known_hosts)
 known_hosts.chmod(0o644)
 venv = ROOT / 'venv'
 if not (venv / 'bin/pip').exists():
-    subprocess.run(['runuser', '-u', 'wiki-editor', '--', 'python3', '-m', 'venv', '--without-pip', str(venv)], check=True)
+    subprocess.run(['runuser', '-u', SERVICE_USER, '--', 'python3', '-m', 'venv', '--without-pip', str(venv)], check=True)
     wheel = STAGE / 'pip-25.0.1-py3-none-any.whl'
     if hashlib.sha256(wheel.read_bytes()).hexdigest() != 'c46efd13b6aa8279f33f2864459c8ce587ea6a1a59ee20de055868d8f7688f7f':
         raise RuntimeError('Pip wheel checksum mismatch')
     local_wheel = ROOT / 'runtime' / wheel.name
     shutil.copy2(wheel, local_wheel)
     local_wheel.chmod(0o644)
-    subprocess.run(['runuser', '-u', 'wiki-editor', '--', 'env', 'PYTHONPATH=' + str(local_wheel), str(venv / 'bin/python'), '-m', 'pip', 'install', '--no-index', str(local_wheel)], check=True)
+    subprocess.run(['runuser', '-u', SERVICE_USER, '--', 'env', 'PYTHONPATH=' + str(local_wheel), str(venv / 'bin/python'), '-m', 'pip', 'install', '--no-index', str(local_wheel)], check=True)
 content = SITE / 'content'
 content.mkdir(mode=0o755, exist_ok=True)
 (content / '.feiyang-wiki-editor').write_text('feiyang-wiki-editor\n')
@@ -90,15 +95,29 @@ config.write_text('\n'.join(name + '=' + json.dumps(value) for name, value in en
 config.chmod(0o600)
 
 def run_user(arguments, cwd=None):
-    command = ['runuser', '-u', 'wiki-editor', '--', 'env', *[name + '=' + value for name, value in environment.items()], *arguments]
-    return subprocess.run(command, cwd=cwd, check=True, capture_output=True, text=True)
+    command = ['runuser', '-u', SERVICE_USER, '--', 'env', *[name + '=' + value for name, value in environment.items()], *arguments]
+    result = subprocess.run(command, cwd=cwd, capture_output=True, text=True, timeout=600)
+    if result.returncode:
+        raise RuntimeError(result.stderr[-3000:] or 'Editor setup command failed')
+    return result
 
 if not args.install:
     print(json.dumps({'prepared': True, 'public_key_path': str(key) + '.pub'}))
     raise SystemExit(0)
 app = ROOT / 'app'
+if app.is_symlink():
+    raise RuntimeError('Application directory must be a real directory')
+if (app / '.git').is_dir():
+    try:
+        run_user(['git', 'rev-parse', '--verify', 'HEAD'], app)
+    except RuntimeError:
+        app.rename(ROOT / ('incomplete-clone-' + str(int(time.time()))))
 if not (app / '.git').is_dir():
-    run_user(['git', 'clone', '--branch', 'main', 'ssh://git@ssh.github.com:443/fyscu/wiki.git', str(app)])
+    bundle = ROOT / 'runtime/wiki-editor.bundle'
+    shutil.copy2(STAGE / 'wiki-editor.bundle', bundle)
+    bundle.chmod(0o644)
+    run_user(['git', 'clone', '--branch', 'main', str(bundle), str(app)])
+    run_user(['git', 'remote', 'set-url', 'origin', 'ssh://git@ssh.github.com:443/fyscu/wiki.git'], app)
 else:
     run_user(['git', 'diff', '--exit-code'], app)
     run_user(['git', 'fetch', 'origin', 'main'], app)

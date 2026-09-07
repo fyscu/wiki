@@ -47,7 +47,8 @@ export function validateArticle(input) {
   }
 }
 export function serializeArticle(record, draft) {
-  const base = record.publishedRaw ? parseArticle(record.publishedRaw, record.path) : null
+  const baseRaw = draft.sourceRaw || record.publishedRaw
+  const base = baseRaw ? parseArticle(baseRaw, record.path) : null
   const document = YAML.parseDocument((base?.matter || '').replace(/\r\n?/g, '\n'))
   document.set('title', draft.title.trim())
   if (record.docId) document.set('doc_id', record.docId)

@@ -26,7 +26,7 @@ export interface NavNode {
   children?: NavNode[]
 }
 
-export interface Navigation { version: Version; items: NavNode[]; dirty: boolean }
+export interface Navigation { version: Version; items: NavNode[]; dirty: boolean; conflict?: boolean; publishedItems?: NavNode[] }
 export interface Media { id: string; path: string; url: string; width: number; height: number; name: string }
 export interface Job {
   id: string
@@ -41,7 +41,7 @@ export interface Job {
 }
 export interface EditorState {
   user: { id: string; role_id: number; display_name?: string; username?: string }
-  revision: string
+  revision: string | number
   articles: ArticleSummary[]
   navigation: Navigation
   jobs: Job[]

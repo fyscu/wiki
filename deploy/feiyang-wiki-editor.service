@@ -5,8 +5,8 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-User=wiki-editor
-Group=wiki-editor
+User=fy-wiki-editor
+Group=fy-wiki-editor
 WorkingDirectory=/opt/feiyang-wiki-editor/app
 EnvironmentFile=/opt/feiyang-wiki-editor/editor.env
 ExecStart=/opt/feiyang-wiki-editor/runtime/node-v24.16.0-linux-x64/bin/node editor/server.mjs

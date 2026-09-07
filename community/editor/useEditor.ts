@@ -58,6 +58,7 @@ export function useEditor() {
     if (disposed || sequence !== stateSequence) return
     if (Number(data.user.role_id) !== 2) { denied.value = true; return }
     state.value = data
+    if (data.navigation.conflict) { navConflict.value = true; navError.value = '源目录已更新，请载入后重新调整' }
     if (!navSaving.value) {
       if (!navDirty.value) {
         navigation.value = { ...data.navigation, items: cloneTree(data.navigation.items) }
@@ -231,9 +232,10 @@ export function useEditor() {
   }
 
   async function reloadNavigation() {
-    if (navDirty.value && !window.confirm('载入服务器目录？未保存的目录修改将被替换。')) return
+    if ((navDirty.value || navConflict.value) && !window.confirm('载入服务器目录？当前目录修改将被替换。')) return
     await action(async () => {
       const data = await editorApi<EditorState>('/state')
+      if (data.navigation.conflict && data.navigation.publishedItems) data.navigation = await editorApi<Navigation>('/navigation', 'PUT', { version: data.navigation.version, items: data.navigation.publishedItems })
       navigation.value = { ...data.navigation, items: cloneTree(data.navigation.items) }
       navBaseline.value = JSON.stringify(data.navigation.items)
       navConflict.value = false; navError.value = ''
