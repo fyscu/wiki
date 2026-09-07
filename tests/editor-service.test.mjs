@@ -544,6 +544,49 @@ test('tickets enforce type, object identity, signature, and expiration', t => {
   assert.throws(() => tickets.verify(ticket, 'preview', 'job-a'), forbidden)
 })
 
+test('restored drafts publish historical metadata rather than retaining newer fields', async t => {
+  const f = await fixture(t), editor = await f.start()
+  const current = await ok(editor, `/_editor/articles/${guideId}`)
+  const restored = await ok(editor, `/_editor/articles/${guideId}/restore`, { method: 'POST', json: { revision: f.oldCommit, version: current.version } })
+  await ok(editor, '/_editor/preview', { method: 'POST', json: { articleId: guideId, version: restored.version } }, 202)
+  await editor.idle()
+  assert.doesNotMatch(f.executions[0].files.find(file => file.path.endsWith('guide.md')).content, /custom:/)
+  await f.unchanged()
+})
+
+test('publishing another article keeps unpublished titles private in navigation', async t => {
+  const f = await fixture(t), editor = await f.start()
+  const guide = await ok(editor, `/_editor/articles/${guideId}`)
+  await save(editor, guide, { title: 'Private draft title' })
+  const plainRecord = (await ok(editor, '/_editor/state')).articles.find(item => item.path === 'plain.md')
+  const plainArticle = await ok(editor, `/_editor/articles/${plainRecord.id}`)
+  await save(editor, plainArticle, { body: plainArticle.body + '\nUpdate\n' })
+  await ok(editor, '/_editor/publish', { method: 'POST', json: { articleIds: [plainRecord.id] } }, 202)
+  await editor.idle()
+  const navigation = f.executions[0].files.find(file => file.path === 'navigation.yml').content
+  assert.doesNotMatch(navigation, /Private draft title/)
+  assert.equal((await ok(editor, '/_editor/state')).navigation.dirty, true)
+  await f.unchanged()
+})
+
+test('external navigation changes flag saved draft conflicts until an explicit resolution', async t => {
+  const f = await fixture(t), editor = await f.start()
+  const nav = (await ok(editor, '/_editor/state')).navigation
+  nav.items.find(item => item.id === 'guides').title = 'Local draft section'
+  await ok(editor, '/_editor/navigation', { method: 'PUT', json: nav })
+  const external = structuredClone(initialNavigation)
+  external.find(item => item.id === 'guides').title = 'Remote section'
+  await put(join(f.repoDir, 'navigation.yml'), YAML.stringify({ version: 1, items: external }))
+  await f.git('add', 'navigation.yml'); await f.git('commit', '-m', 'External navigation change')
+  await editor.refresh(true)
+  const changed = (await ok(editor, '/_editor/state')).navigation
+  assert.equal(changed.conflict, true)
+  assert.equal((await request(editor, '/_editor/publish', { method: 'POST', json: {} })).status, 409)
+  const resolved = await ok(editor, '/_editor/navigation', { method: 'PUT', json: { version: changed.version, items: changed.publishedItems } })
+  assert.equal(resolved.conflict, false)
+  assert.equal(resolved.dirty, false)
+})
+
 test('a ticket is already expired at its exact expiration timestamp', t => {
   t.mock.timers.enable({ apis: ['Date'], now: 1700000000000 })
   const tickets = createTickets(Buffer.alloc(32, 9))

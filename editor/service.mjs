@@ -31,6 +31,7 @@ export async function createEditor(options) {
   async function syncTags(snapshot) {
     const authorization = tokens.get(snapshot.id)
     if (!authorization) fail('发布会话已结束，请重新发布', 401)
+    await answerAdministrator({ headers: { authorization } }, options.answerOrigin)
     for (const file of snapshot.files.filter(file => file.path.endsWith('.md') && file.content !== null)) {
       const article = parseArticle(file.content, file.path)
       if (!article.docId) continue

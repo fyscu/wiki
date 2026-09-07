@@ -125,7 +125,15 @@ else:
 run_user(['git', 'config', 'user.name', 'Feiyang Wiki Editor'], app)
 run_user(['git', 'config', 'user.email', 'wiki-editor@feiyang.ac.cn'], app)
 run_user(['npm', 'ci'], app)
-run_user([str(venv / 'bin/python'), '-m', 'pip', 'install', '-r', 'requirements.txt'], app)
+wheels = ROOT / 'runtime/wheels'
+wheels.mkdir(mode=0o755, exist_ok=True)
+with tarfile.open(STAGE / 'editor-wheels.tar') as archive:
+    for entry in archive.getmembers():
+        target = (wheels / entry.name).resolve()
+        if not target.is_relative_to(wheels.resolve()) or not (entry.isdir() or (entry.isfile() and entry.name.endswith('.whl'))):
+            raise RuntimeError('Unexpected wheel archive entry')
+    archive.extractall(wheels, filter='data')
+run_user([str(venv / 'bin/python'), '-m', 'pip', 'install', '--no-index', '--find-links', str(wheels), '-r', 'requirements.txt'], app)
 shutil.copy2(STAGE / 'feiyang-wiki-editor.service', '/etc/systemd/system/feiyang-wiki-editor.service')
 subprocess.run(['systemctl', 'daemon-reload'], check=True)
 subprocess.run(['systemctl', 'enable', '--now', 'feiyang-wiki-editor.service'], check=True)
