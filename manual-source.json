@@ -3,6 +3,50 @@
   "source_sha256": "37773af64b4e380f2be284a4c12ac304afdf2e89eae3874b6c776f3155a1fda4",
   "pdf_pages": 212,
   "printed_page_offset": -1,
+  "corrections": [
+    {
+      "pdf_page": 16,
+      "original": "将 220v 交流电转换为电脑中使用的 5V、72V、3.3V 直流电",
+      "corrected": "将 220v 交流电转换为电脑中使用的 5V、12V、3.3V 直流电",
+      "reason": "ATX 主机电源的常用高压输出轨是 12 V；72 V 是明显笔误。"
+    },
+    {
+      "pdf_page": 96,
+      "original": "端口的长度介于 0-63353",
+      "corrected": "端口的长度介于 0-65535",
+      "reason": "端口号字段为 16 位，最大值为 65535。"
+    },
+    {
+      "pdf_page": 169,
+      "original": "一般我们没有必要修复。我们都安装了安全软件和杀毒软件，电脑是较安全的。",
+      "corrected": "一般情况下应及时修复系统安全漏洞。安全软件和杀毒软件不能代替系统更新。",
+      "reason": "安全软件不能替代操作系统安全更新。"
+    },
+    {
+      "pdf_page": 177,
+      "original": "静放 24 小时，等到少量流到内部的水完全蒸发后即可开机测试。",
+      "corrected": "需确认内部完全干燥、无残留后再评估开机。",
+      "reason": "液体量、路径、残留物和环境条件不同，固定 24 小时不能保证内部干燥。"
+    },
+    {
+      "pdf_page": 178,
+      "original": "重新格式化分区磁盘……之后再重新安装系统即可解决问题。",
+      "corrected": "格式化不能修复物理坏道，应判断磁盘是否需要更换。",
+      "reason": "格式化只能重建文件系统或隔离逻辑区域，不能修复介质物理损伤。"
+    },
+    {
+      "pdf_page": 155,
+      "original": "win8 和 win10 默认必须用 UEFI 引导启动，而win7 默认用 MBR 引导启动",
+      "corrected": "Windows 的引导方式需要与固件和磁盘布局匹配。",
+      "reason": "Windows 8/10 并非只能使用 UEFI；绝对断言会导致错误改装。"
+    },
+    {
+      "pdf_page": 10,
+      "original": "根据图灵思想，巴贝奇使用机械的方式发明了世界上第一台机械式计算机",
+      "corrected": "巴贝奇使用机械的方式发明了世界上第一台机械式计算机",
+      "reason": "巴贝奇早于图灵，二者不存在该时间先后关系。"
+    }
+  ],
   "assets": [
     {
       "file": "/images/manual/club-mark.webp",
@@ -12,6 +56,41 @@
       "height": 491
     },
     {
+      "file": "/images/manual/pdf-p009-i00.jpg",
+      "pdf_page": 9,
+      "printed_page": 8,
+      "width": 410,
+      "height": 429
+    },
+    {
+      "file": "/images/manual/pdf-p012-i00.png",
+      "pdf_page": 12,
+      "printed_page": 11,
+      "width": 440,
+      "height": 332
+    },
+    {
+      "file": "/images/manual/pdf-p013-i00.jpg",
+      "pdf_page": 13,
+      "printed_page": 12,
+      "width": 500,
+      "height": 332
+    },
+    {
+      "file": "/images/manual/pdf-p014-i00.jpg",
+      "pdf_page": 14,
+      "printed_page": 13,
+      "width": 500,
+      "height": 333
+    },
+    {
+      "file": "/images/manual/pdf-p016-i00.jpg",
+      "pdf_page": 16,
+      "printed_page": 15,
+      "width": 640,
+      "height": 269
+    },
+    {
       "file": "/images/manual/motherboard.webp",
       "pdf_page": 19,
       "printed_page": 18,
@@ -19,11 +98,60 @@
       "height": 420
     },
     {
+      "file": "/images/manual/pdf-p021-i00.jpg",
+      "pdf_page": 21,
+      "printed_page": 20,
+      "width": 500,
+      "height": 375
+    },
+    {
+      "file": "/images/manual/pdf-p021-i01.jpg",
+      "pdf_page": 21,
+      "printed_page": 20,
+      "width": 500,
+      "height": 503
+    },
+    {
+      "file": "/images/manual/pdf-p022-i00.jpg",
+      "pdf_page": 22,
+      "printed_page": 21,
+      "width": 500,
+      "height": 331
+    },
+    {
+      "file": "/images/manual/pdf-p022-i01.jpg",
+      "pdf_page": 22,
+      "printed_page": 21,
+      "width": 500,
+      "height": 375
+    },
+    {
+      "file": "/images/manual/pdf-p023-i00.png",
+      "pdf_page": 23,
+      "printed_page": 22,
+      "width": 220,
+      "height": 192
+    },
+    {
+      "file": "/images/manual/pdf-p023-i01.jpg",
+      "pdf_page": 23,
+      "printed_page": 22,
+      "width": 611,
+      "height": 356
+    },
+    {
       "file": "/images/manual/m2-connectors.webp",
       "pdf_page": 24,
       "printed_page": 23,
       "width": 500,
       "height": 357
+    },
+    {
+      "file": "/images/manual/pdf-p024-i01.jpg",
+      "pdf_page": 24,
+      "printed_page": 23,
+      "width": 440,
+      "height": 236
     },
     {
       "file": "/images/manual/memory.webp",
@@ -40,11 +168,81 @@
       "height": 249
     },
     {
+      "file": "/images/manual/pdf-p034-i00.jpg",
+      "pdf_page": 34,
+      "printed_page": 33,
+      "width": 533,
+      "height": 300
+    },
+    {
       "file": "/images/manual/graphics-card.webp",
       "pdf_page": 37,
       "printed_page": 36,
       "width": 533,
       "height": 300
+    },
+    {
+      "file": "/images/manual/pdf-p041-i00.jpg",
+      "pdf_page": 41,
+      "printed_page": 40,
+      "width": 513,
+      "height": 300
+    },
+    {
+      "file": "/images/manual/pdf-p042-i00.jpg",
+      "pdf_page": 42,
+      "printed_page": 41,
+      "width": 500,
+      "height": 306
+    },
+    {
+      "file": "/images/manual/pdf-p045-i00.jpg",
+      "pdf_page": 45,
+      "printed_page": 44,
+      "width": 500,
+      "height": 333
+    },
+    {
+      "file": "/images/manual/pdf-p047-i00.jpg",
+      "pdf_page": 47,
+      "printed_page": 46,
+      "width": 533,
+      "height": 300
+    },
+    {
+      "file": "/images/manual/pdf-p049-i00.jpg",
+      "pdf_page": 49,
+      "printed_page": 48,
+      "width": 220,
+      "height": 134
+    },
+    {
+      "file": "/images/manual/pdf-p051-i00.jpg",
+      "pdf_page": 51,
+      "printed_page": 50,
+      "width": 393,
+      "height": 277
+    },
+    {
+      "file": "/images/manual/pdf-p053-i00.png",
+      "pdf_page": 53,
+      "printed_page": 52,
+      "width": 1200,
+      "height": 536
+    },
+    {
+      "file": "/images/manual/pdf-p054-i00.jpg",
+      "pdf_page": 54,
+      "printed_page": 53,
+      "width": 500,
+      "height": 302
+    },
+    {
+      "file": "/images/manual/pdf-p055-i00.jpg",
+      "pdf_page": 55,
+      "printed_page": 54,
+      "width": 500,
+      "height": 381
     },
     {
       "file": "/images/manual/boot-process.webp",
@@ -54,6 +252,27 @@
       "height": 188
     },
     {
+      "file": "/images/manual/pdf-p058-i00.jpg",
+      "pdf_page": 58,
+      "printed_page": 57,
+      "width": 600,
+      "height": 323
+    },
+    {
+      "file": "/images/manual/pdf-p063-i00.png",
+      "pdf_page": 63,
+      "printed_page": 62,
+      "width": 550,
+      "height": 548
+    },
+    {
+      "file": "/images/manual/pdf-p063-i01.jpg",
+      "pdf_page": 63,
+      "printed_page": 62,
+      "width": 537,
+      "height": 337
+    },
+    {
       "file": "/images/manual/uefi.webp",
       "pdf_page": 66,
       "printed_page": 65,
@@ -61,12 +280,1160 @@
       "height": 458
     },
     {
+      "file": "/images/manual/pdf-p068-i00.jpg",
+      "pdf_page": 68,
+      "printed_page": 67,
+      "width": 315,
+      "height": 333
+    },
+    {
+      "file": "/images/manual/pdf-p070-i00.png",
+      "pdf_page": 70,
+      "printed_page": 69,
+      "width": 1268,
+      "height": 864
+    },
+    {
+      "file": "/images/manual/pdf-p070-i01.png",
+      "pdf_page": 70,
+      "printed_page": 69,
+      "width": 1525,
+      "height": 722
+    },
+    {
+      "file": "/images/manual/pdf-p072-i00.jpg",
+      "pdf_page": 72,
+      "printed_page": 71,
+      "width": 541,
+      "height": 323
+    },
+    {
+      "file": "/images/manual/pdf-p073-i00.png",
+      "pdf_page": 73,
+      "printed_page": 72,
+      "width": 464,
+      "height": 308
+    },
+    {
+      "file": "/images/manual/pdf-p076-i00.png",
+      "pdf_page": 76,
+      "printed_page": 75,
+      "width": 663,
+      "height": 200
+    },
+    {
+      "file": "/images/manual/pdf-p077-i00.jpg",
+      "pdf_page": 77,
+      "printed_page": 76,
+      "width": 386,
+      "height": 533
+    },
+    {
+      "file": "/images/manual/pdf-p081-i00.png",
+      "pdf_page": 81,
+      "printed_page": 80,
+      "width": 662,
+      "height": 220
+    },
+    {
+      "file": "/images/manual/pdf-p082-i00.jpg",
+      "pdf_page": 82,
+      "printed_page": 81,
+      "width": 828,
+      "height": 705
+    },
+    {
+      "file": "/images/manual/pdf-p082-i01.png",
+      "pdf_page": 82,
+      "printed_page": 81,
+      "width": 1012,
+      "height": 597
+    },
+    {
+      "file": "/images/manual/pdf-p083-i00.jpg",
+      "pdf_page": 83,
+      "printed_page": 82,
+      "width": 1200,
+      "height": 596
+    },
+    {
+      "file": "/images/manual/pdf-p083-i01.jpg",
+      "pdf_page": 83,
+      "printed_page": 82,
+      "width": 1200,
+      "height": 596
+    },
+    {
+      "file": "/images/manual/pdf-p084-i00.jpg",
+      "pdf_page": 84,
+      "printed_page": 83,
+      "width": 1200,
+      "height": 596
+    },
+    {
+      "file": "/images/manual/pdf-p084-i01.png",
+      "pdf_page": 84,
+      "printed_page": 83,
+      "width": 1200,
+      "height": 596
+    },
+    {
+      "file": "/images/manual/pdf-p084-i02.png",
+      "pdf_page": 84,
+      "printed_page": 83,
+      "width": 1200,
+      "height": 596
+    },
+    {
+      "file": "/images/manual/pdf-p085-i00.jpg",
+      "pdf_page": 85,
+      "printed_page": 84,
+      "width": 1200,
+      "height": 596
+    },
+    {
+      "file": "/images/manual/pdf-p085-i01.jpg",
+      "pdf_page": 85,
+      "printed_page": 84,
+      "width": 1200,
+      "height": 596
+    },
+    {
+      "file": "/images/manual/pdf-p087-i00.jpg",
+      "pdf_page": 87,
+      "printed_page": 86,
+      "width": 563,
+      "height": 469
+    },
+    {
+      "file": "/images/manual/pdf-p089-i00.png",
+      "pdf_page": 89,
+      "printed_page": 88,
+      "width": 743,
+      "height": 346
+    },
+    {
+      "file": "/images/manual/pdf-p096-i00.png",
+      "pdf_page": 96,
+      "printed_page": 95,
+      "width": 935,
+      "height": 465
+    },
+    {
+      "file": "/images/manual/pdf-p099-i00.jpg",
+      "pdf_page": 99,
+      "printed_page": 98,
+      "width": 663,
+      "height": 830
+    },
+    {
+      "file": "/images/manual/pdf-p101-i00.png",
+      "pdf_page": 101,
+      "printed_page": 100,
+      "width": 789,
+      "height": 619
+    },
+    {
+      "file": "/images/manual/pdf-p101-i01.png",
+      "pdf_page": 101,
+      "printed_page": 100,
+      "width": 789,
+      "height": 619
+    },
+    {
+      "file": "/images/manual/pdf-p102-i00.png",
+      "pdf_page": 102,
+      "printed_page": 101,
+      "width": 789,
+      "height": 619
+    },
+    {
+      "file": "/images/manual/pdf-p102-i01.png",
+      "pdf_page": 102,
+      "printed_page": 101,
+      "width": 759,
+      "height": 598
+    },
+    {
+      "file": "/images/manual/pdf-p103-i00.png",
+      "pdf_page": 103,
+      "printed_page": 102,
+      "width": 526,
+      "height": 747
+    },
+    {
+      "file": "/images/manual/pdf-p104-i00.png",
+      "pdf_page": 104,
+      "printed_page": 103,
+      "width": 581,
+      "height": 726
+    },
+    {
+      "file": "/images/manual/pdf-p104-i01.jpg",
+      "pdf_page": 104,
+      "printed_page": 103,
+      "width": 865,
+      "height": 433
+    },
+    {
+      "file": "/images/manual/pdf-p105-i00.png",
+      "pdf_page": 105,
+      "printed_page": 104,
+      "width": 764,
+      "height": 606
+    },
+    {
+      "file": "/images/manual/pdf-p105-i01.jpg",
+      "pdf_page": 105,
+      "printed_page": 104,
+      "width": 865,
+      "height": 687
+    },
+    {
+      "file": "/images/manual/pdf-p106-i00.jpg",
+      "pdf_page": 106,
+      "printed_page": 105,
+      "width": 865,
+      "height": 700
+    },
+    {
+      "file": "/images/manual/pdf-p107-i00.jpg",
+      "pdf_page": 107,
+      "printed_page": 106,
+      "width": 866,
+      "height": 498
+    },
+    {
+      "file": "/images/manual/pdf-p107-i01.jpg",
+      "pdf_page": 107,
+      "printed_page": 106,
+      "width": 865,
+      "height": 446
+    },
+    {
+      "file": "/images/manual/pdf-p108-i00.jpg",
+      "pdf_page": 108,
+      "printed_page": 107,
+      "width": 865,
+      "height": 470
+    },
+    {
+      "file": "/images/manual/pdf-p108-i01.jpg",
+      "pdf_page": 108,
+      "printed_page": 107,
+      "width": 865,
+      "height": 253
+    },
+    {
+      "file": "/images/manual/pdf-p109-i00.jpg",
+      "pdf_page": 109,
+      "printed_page": 108,
+      "width": 865,
+      "height": 250
+    },
+    {
+      "file": "/images/manual/pdf-p109-i01.jpg",
+      "pdf_page": 109,
+      "printed_page": 108,
+      "width": 224,
+      "height": 544
+    },
+    {
+      "file": "/images/manual/pdf-p110-i00.jpg",
+      "pdf_page": 110,
+      "printed_page": 109,
+      "width": 480,
+      "height": 263
+    },
+    {
+      "file": "/images/manual/pdf-p110-i01.jpg",
+      "pdf_page": 110,
+      "printed_page": 109,
+      "width": 864,
+      "height": 205
+    },
+    {
+      "file": "/images/manual/pdf-p111-i00.jpg",
+      "pdf_page": 111,
+      "printed_page": 110,
+      "width": 784,
+      "height": 274
+    },
+    {
+      "file": "/images/manual/pdf-p111-i01.png",
+      "pdf_page": 111,
+      "printed_page": 110,
+      "width": 784,
+      "height": 306
+    },
+    {
+      "file": "/images/manual/pdf-p112-i00.jpg",
+      "pdf_page": 112,
+      "printed_page": 111,
+      "width": 784,
+      "height": 280
+    },
+    {
+      "file": "/images/manual/pdf-p113-i00.jpg",
+      "pdf_page": 113,
+      "printed_page": 112,
+      "width": 427,
+      "height": 163
+    },
+    {
+      "file": "/images/manual/pdf-p113-i01.png",
+      "pdf_page": 113,
+      "printed_page": 112,
+      "width": 865,
+      "height": 507
+    },
+    {
+      "file": "/images/manual/pdf-p114-i00.jpg",
+      "pdf_page": 114,
+      "printed_page": 113,
+      "width": 349,
+      "height": 570
+    },
+    {
+      "file": "/images/manual/pdf-p115-i00.jpg",
+      "pdf_page": 115,
+      "printed_page": 114,
+      "width": 434,
+      "height": 359
+    },
+    {
+      "file": "/images/manual/pdf-p115-i01.jpg",
+      "pdf_page": 115,
+      "printed_page": 114,
+      "width": 421,
+      "height": 352
+    },
+    {
+      "file": "/images/manual/pdf-p115-i02.jpg",
+      "pdf_page": 115,
+      "printed_page": 114,
+      "width": 423,
+      "height": 351
+    },
+    {
+      "file": "/images/manual/pdf-p118-i00.png",
+      "pdf_page": 118,
+      "printed_page": 117,
+      "width": 932,
+      "height": 704
+    },
+    {
+      "file": "/images/manual/pdf-p119-i00.png",
+      "pdf_page": 119,
+      "printed_page": 118,
+      "width": 794,
+      "height": 367
+    },
+    {
+      "file": "/images/manual/pdf-p119-i01.png",
+      "pdf_page": 119,
+      "printed_page": 118,
+      "width": 794,
+      "height": 376
+    },
+    {
+      "file": "/images/manual/pdf-p120-i00.png",
+      "pdf_page": 120,
+      "printed_page": 119,
+      "width": 794,
+      "height": 376
+    },
+    {
+      "file": "/images/manual/pdf-p120-i01.png",
+      "pdf_page": 120,
+      "printed_page": 119,
+      "width": 794,
+      "height": 376
+    },
+    {
+      "file": "/images/manual/pdf-p121-i00.jpg",
+      "pdf_page": 121,
+      "printed_page": 120,
+      "width": 865,
+      "height": 71
+    },
+    {
+      "file": "/images/manual/pdf-p121-i01.png",
+      "pdf_page": 121,
+      "printed_page": 120,
+      "width": 769,
+      "height": 399
+    },
+    {
+      "file": "/images/manual/pdf-p124-i00.png",
+      "pdf_page": 124,
+      "printed_page": 123,
+      "width": 513,
+      "height": 272
+    },
+    {
+      "file": "/images/manual/pdf-p124-i01.png",
+      "pdf_page": 124,
+      "printed_page": 123,
+      "width": 621,
+      "height": 359
+    },
+    {
+      "file": "/images/manual/pdf-p126-i00.png",
+      "pdf_page": 126,
+      "printed_page": 125,
+      "width": 742,
+      "height": 686
+    },
+    {
+      "file": "/images/manual/pdf-p127-i00.png",
+      "pdf_page": 127,
+      "printed_page": 126,
+      "width": 944,
+      "height": 592
+    },
+    {
+      "file": "/images/manual/pdf-p127-i01.png",
+      "pdf_page": 127,
+      "printed_page": 126,
+      "width": 513,
+      "height": 272
+    },
+    {
+      "file": "/images/manual/pdf-p128-i00.png",
+      "pdf_page": 128,
+      "printed_page": 127,
+      "width": 537,
+      "height": 272
+    },
+    {
       "file": "/images/manual/repair-tools.webp",
       "pdf_page": 131,
       "printed_page": 130,
       "width": 444,
       "height": 231
+    },
+    {
+      "file": "/images/manual/pdf-p132-i00.jpg",
+      "pdf_page": 132,
+      "printed_page": 131,
+      "width": 423,
+      "height": 375
+    },
+    {
+      "file": "/images/manual/pdf-p133-i00.jpg",
+      "pdf_page": 133,
+      "printed_page": 132,
+      "width": 503,
+      "height": 384
+    },
+    {
+      "file": "/images/manual/pdf-p133-i01.png",
+      "pdf_page": 133,
+      "printed_page": 132,
+      "width": 483,
+      "height": 344
+    },
+    {
+      "file": "/images/manual/pdf-p133-i02.jpg",
+      "pdf_page": 133,
+      "printed_page": 132,
+      "width": 527,
+      "height": 415
+    },
+    {
+      "file": "/images/manual/pdf-p134-i00.jpg",
+      "pdf_page": 134,
+      "printed_page": 133,
+      "width": 478,
+      "height": 384
+    },
+    {
+      "file": "/images/manual/pdf-p134-i01.jpg",
+      "pdf_page": 134,
+      "printed_page": 133,
+      "width": 559,
+      "height": 397
+    },
+    {
+      "file": "/images/manual/pdf-p135-i00.jpg",
+      "pdf_page": 135,
+      "printed_page": 134,
+      "width": 602,
+      "height": 363
+    },
+    {
+      "file": "/images/manual/pdf-p135-i01.jpg",
+      "pdf_page": 135,
+      "printed_page": 134,
+      "width": 590,
+      "height": 367
+    },
+    {
+      "file": "/images/manual/laptop-wlan-antenna.jpg",
+      "pdf_page": 136,
+      "printed_page": 135,
+      "width": 703,
+      "height": 491
+    },
+    {
+      "file": "/images/manual/pdf-p136-i01.jpg",
+      "pdf_page": 136,
+      "printed_page": 135,
+      "width": 742,
+      "height": 519
+    },
+    {
+      "file": "/images/manual/laptop-cooling-module.jpg",
+      "pdf_page": 137,
+      "printed_page": 136,
+      "width": 488,
+      "height": 396
+    },
+    {
+      "file": "/images/manual/pdf-p137-i00.jpg",
+      "pdf_page": 137,
+      "printed_page": 136,
+      "width": 531,
+      "height": 307
+    },
+    {
+      "file": "/images/manual/pdf-p137-i01.jpg",
+      "pdf_page": 137,
+      "printed_page": 136,
+      "width": 454,
+      "height": 311
+    },
+    {
+      "file": "/images/manual/pdf-p137-i03.jpg",
+      "pdf_page": 137,
+      "printed_page": 136,
+      "width": 492,
+      "height": 396
+    },
+    {
+      "file": "/images/manual/pdf-p138-i00.jpg",
+      "pdf_page": 138,
+      "printed_page": 137,
+      "width": 528,
+      "height": 394
+    },
+    {
+      "file": "/images/manual/pdf-p139-i00.png",
+      "pdf_page": 139,
+      "printed_page": 138,
+      "width": 865,
+      "height": 1094
+    },
+    {
+      "file": "/images/manual/pdf-p143-i00.jpg",
+      "pdf_page": 143,
+      "printed_page": 142,
+      "width": 1025,
+      "height": 770
+    },
+    {
+      "file": "/images/manual/pdf-p144-i00.png",
+      "pdf_page": 144,
+      "printed_page": 143,
+      "width": 711,
+      "height": 200
+    },
+    {
+      "file": "/images/manual/pdf-p144-i01.png",
+      "pdf_page": 144,
+      "printed_page": 143,
+      "width": 963,
+      "height": 705
+    },
+    {
+      "file": "/images/manual/pdf-p145-i00.png",
+      "pdf_page": 145,
+      "printed_page": 144,
+      "width": 545,
+      "height": 508
+    },
+    {
+      "file": "/images/manual/pdf-p145-i01.png",
+      "pdf_page": 145,
+      "printed_page": 144,
+      "width": 1021,
+      "height": 758
+    },
+    {
+      "file": "/images/manual/pdf-p146-i00.png",
+      "pdf_page": 146,
+      "printed_page": 145,
+      "width": 1022,
+      "height": 761
+    },
+    {
+      "file": "/images/manual/windows-install-options.png",
+      "pdf_page": 146,
+      "printed_page": 145,
+      "width": 1020,
+      "height": 762
+    },
+    {
+      "file": "/images/manual/pdf-p147-i00.png",
+      "pdf_page": 147,
+      "printed_page": 146,
+      "width": 1025,
+      "height": 764
+    },
+    {
+      "file": "/images/manual/pdf-p147-i01.png",
+      "pdf_page": 147,
+      "printed_page": 146,
+      "width": 1023,
+      "height": 768
+    },
+    {
+      "file": "/images/manual/pdf-p148-i00.png",
+      "pdf_page": 148,
+      "printed_page": 147,
+      "width": 1021,
+      "height": 763
+    },
+    {
+      "file": "/images/manual/windows-partition.png",
+      "pdf_page": 148,
+      "printed_page": 147,
+      "width": 1017,
+      "height": 759
+    },
+    {
+      "file": "/images/manual/pdf-p149-i00.png",
+      "pdf_page": 149,
+      "printed_page": 148,
+      "width": 1018,
+      "height": 762
+    },
+    {
+      "file": "/images/manual/pdf-p149-i01.png",
+      "pdf_page": 149,
+      "printed_page": 148,
+      "width": 1016,
+      "height": 758
+    },
+    {
+      "file": "/images/manual/pdf-p150-i00.png",
+      "pdf_page": 150,
+      "printed_page": 149,
+      "width": 1018,
+      "height": 768
+    },
+    {
+      "file": "/images/manual/pdf-p150-i01.png",
+      "pdf_page": 150,
+      "printed_page": 149,
+      "width": 1019,
+      "height": 759
+    },
+    {
+      "file": "/images/manual/pdf-p151-i00.jpg",
+      "pdf_page": 151,
+      "printed_page": 150,
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "file": "/images/manual/pdf-p152-i00.jpg",
+      "pdf_page": 152,
+      "printed_page": 151,
+      "width": 1025,
+      "height": 767
+    },
+    {
+      "file": "/images/manual/pdf-p153-i00.png",
+      "pdf_page": 153,
+      "printed_page": 152,
+      "width": 585,
+      "height": 521
+    },
+    {
+      "file": "/images/manual/windows-winntsetup.png",
+      "pdf_page": 153,
+      "printed_page": 152,
+      "width": 624,
+      "height": 477
+    },
+    {
+      "file": "/images/manual/pdf-p154-i00.png",
+      "pdf_page": 154,
+      "printed_page": 153,
+      "width": 584,
+      "height": 521
+    },
+    {
+      "file": "/images/manual/pdf-p154-i01.png",
+      "pdf_page": 154,
+      "printed_page": 153,
+      "width": 154,
+      "height": 59
+    },
+    {
+      "file": "/images/manual/pdf-p154-i02.png",
+      "pdf_page": 154,
+      "printed_page": 153,
+      "width": 128,
+      "height": 56
+    },
+    {
+      "file": "/images/manual/pdf-p155-i00.jpg",
+      "pdf_page": 155,
+      "printed_page": 154,
+      "width": 1021,
+      "height": 764
+    },
+    {
+      "file": "/images/manual/pdf-p156-i00.png",
+      "pdf_page": 156,
+      "printed_page": 155,
+      "width": 383,
+      "height": 552
+    },
+    {
+      "file": "/images/manual/pdf-p157-i00.jpg",
+      "pdf_page": 157,
+      "printed_page": 156,
+      "width": 865,
+      "height": 462
+    },
+    {
+      "file": "/images/manual/pdf-p157-i01.jpg",
+      "pdf_page": 157,
+      "printed_page": 156,
+      "width": 865,
+      "height": 462
+    },
+    {
+      "file": "/images/manual/pdf-p158-i00.jpg",
+      "pdf_page": 158,
+      "printed_page": 157,
+      "width": 865,
+      "height": 464
+    },
+    {
+      "file": "/images/manual/pdf-p158-i01.jpg",
+      "pdf_page": 158,
+      "printed_page": 157,
+      "width": 865,
+      "height": 612
+    },
+    {
+      "file": "/images/manual/pdf-p161-i00.png",
+      "pdf_page": 161,
+      "printed_page": 160,
+      "width": 1228,
+      "height": 920
+    },
+    {
+      "file": "/images/manual/pdf-p162-i00.png",
+      "pdf_page": 162,
+      "printed_page": 161,
+      "width": 858,
+      "height": 642
+    },
+    {
+      "file": "/images/manual/pdf-p162-i01.png",
+      "pdf_page": 162,
+      "printed_page": 161,
+      "width": 1228,
+      "height": 920
+    },
+    {
+      "file": "/images/manual/pdf-p163-i00.png",
+      "pdf_page": 163,
+      "printed_page": 162,
+      "width": 1228,
+      "height": 920
+    },
+    {
+      "file": "/images/manual/pdf-p163-i01.png",
+      "pdf_page": 163,
+      "printed_page": 162,
+      "width": 1228,
+      "height": 920
+    },
+    {
+      "file": "/images/manual/pdf-p164-i00.png",
+      "pdf_page": 164,
+      "printed_page": 163,
+      "width": 1228,
+      "height": 920
+    },
+    {
+      "file": "/images/manual/pdf-p164-i01.png",
+      "pdf_page": 164,
+      "printed_page": 163,
+      "width": 1228,
+      "height": 920
+    },
+    {
+      "file": "/images/manual/pdf-p166-i00.jpg",
+      "pdf_page": 166,
+      "printed_page": 165,
+      "width": 625,
+      "height": 393
+    },
+    {
+      "file": "/images/manual/pdf-p166-i01.jpg",
+      "pdf_page": 166,
+      "printed_page": 165,
+      "width": 477,
+      "height": 334
+    },
+    {
+      "file": "/images/manual/pdf-p167-i00.png",
+      "pdf_page": 167,
+      "printed_page": 166,
+      "width": 906,
+      "height": 656
+    },
+    {
+      "file": "/images/manual/pdf-p168-i00.png",
+      "pdf_page": 168,
+      "printed_page": 167,
+      "width": 906,
+      "height": 656
+    },
+    {
+      "file": "/images/manual/pdf-p168-i01.png",
+      "pdf_page": 168,
+      "printed_page": 167,
+      "width": 906,
+      "height": 656
+    },
+    {
+      "file": "/images/manual/pdf-p170-i00.png",
+      "pdf_page": 170,
+      "printed_page": 169,
+      "width": 789,
+      "height": 765
+    },
+    {
+      "file": "/images/manual/pdf-p171-i00.png",
+      "pdf_page": 171,
+      "printed_page": 170,
+      "width": 789,
+      "height": 547
+    },
+    {
+      "file": "/images/manual/pdf-p171-i01.png",
+      "pdf_page": 171,
+      "printed_page": 170,
+      "width": 543,
+      "height": 755
+    },
+    {
+      "file": "/images/manual/pdf-p172-i00.png",
+      "pdf_page": 172,
+      "printed_page": 171,
+      "width": 901,
+      "height": 670
+    },
+    {
+      "file": "/images/manual/pdf-p180-i00.png",
+      "pdf_page": 180,
+      "printed_page": 179,
+      "width": 963,
+      "height": 711
+    },
+    {
+      "file": "/images/manual/pdf-p181-i01.png",
+      "pdf_page": 181,
+      "printed_page": 180,
+      "width": 963,
+      "height": 711
+    },
+    {
+      "file": "/images/manual/ultraiso-main.png",
+      "pdf_page": 181,
+      "printed_page": 180,
+      "width": 963,
+      "height": 711
+    },
+    {
+      "file": "/images/manual/pdf-p182-i00.jpg",
+      "pdf_page": 182,
+      "printed_page": 181,
+      "width": 689,
+      "height": 543
+    },
+    {
+      "file": "/images/manual/pdf-p183-i00.png",
+      "pdf_page": 183,
+      "printed_page": 182,
+      "width": 902,
+      "height": 708
+    },
+    {
+      "file": "/images/manual/pdf-p184-i00.png",
+      "pdf_page": 184,
+      "printed_page": 183,
+      "width": 869,
+      "height": 611
+    },
+    {
+      "file": "/images/manual/pdf-p184-i01.png",
+      "pdf_page": 184,
+      "printed_page": 183,
+      "width": 657,
+      "height": 490
+    },
+    {
+      "file": "/images/manual/pdf-p185-i00.png",
+      "pdf_page": 185,
+      "printed_page": 184,
+      "width": 704,
+      "height": 780
+    },
+    {
+      "file": "/images/manual/pdf-p186-i00.png",
+      "pdf_page": 186,
+      "printed_page": 185,
+      "width": 1368,
+      "height": 824
+    },
+    {
+      "file": "/images/manual/pdf-p187-i00.png",
+      "pdf_page": 187,
+      "printed_page": 186,
+      "width": 1298,
+      "height": 835
+    },
+    {
+      "file": "/images/manual/pdf-p188-i00.png",
+      "pdf_page": 188,
+      "printed_page": 187,
+      "width": 1100,
+      "height": 775
+    },
+    {
+      "file": "/images/manual/pdf-p189-i00.png",
+      "pdf_page": 189,
+      "printed_page": 188,
+      "width": 1215,
+      "height": 780
+    },
+    {
+      "file": "/images/manual/pdf-p190-i00.png",
+      "pdf_page": 190,
+      "printed_page": 189,
+      "width": 1264,
+      "height": 877
+    },
+    {
+      "file": "/images/manual/pdf-p190-i01.jpg",
+      "pdf_page": 190,
+      "printed_page": 189,
+      "width": 462,
+      "height": 351
+    },
+    {
+      "file": "/images/manual/pdf-p191-i00.jpg",
+      "pdf_page": 191,
+      "printed_page": 190,
+      "width": 500,
+      "height": 313
+    },
+    {
+      "file": "/images/manual/pdf-p191-i01.jpg",
+      "pdf_page": 191,
+      "printed_page": 190,
+      "width": 461,
+      "height": 308
+    },
+    {
+      "file": "/images/manual/pdf-p192-i00.jpg",
+      "pdf_page": 192,
+      "printed_page": 191,
+      "width": 503,
+      "height": 502
+    },
+    {
+      "file": "/images/manual/pdf-p194-i00.png",
+      "pdf_page": 194,
+      "printed_page": 193,
+      "width": 519,
+      "height": 635
+    },
+    {
+      "file": "/images/manual/pdf-p195-i00.png",
+      "pdf_page": 195,
+      "printed_page": 194,
+      "width": 846,
+      "height": 795
+    },
+    {
+      "file": "/images/manual/pdf-p196-i00.png",
+      "pdf_page": 196,
+      "printed_page": 195,
+      "width": 846,
+      "height": 795
+    },
+    {
+      "file": "/images/manual/hdtune-health.jpg",
+      "pdf_page": 197,
+      "printed_page": 196,
+      "width": 846,
+      "height": 795
+    },
+    {
+      "file": "/images/manual/hdtune-error-scan.png",
+      "pdf_page": 198,
+      "printed_page": 197,
+      "width": 846,
+      "height": 795
+    },
+    {
+      "file": "/images/manual/pdf-p199-i00.png",
+      "pdf_page": 199,
+      "printed_page": 198,
+      "width": 1153,
+      "height": 830
+    },
+    {
+      "file": "/images/manual/pdf-p199-i01.png",
+      "pdf_page": 199,
+      "printed_page": 198,
+      "width": 1153,
+      "height": 830
+    },
+    {
+      "file": "/images/manual/pdf-p200-i00.jpg",
+      "pdf_page": 200,
+      "printed_page": 199,
+      "width": 865,
+      "height": 486
+    },
+    {
+      "file": "/images/manual/pdf-p201-i00.png",
+      "pdf_page": 201,
+      "printed_page": 200,
+      "width": 745,
+      "height": 157
+    },
+    {
+      "file": "/images/manual/pdf-p201-i01.png",
+      "pdf_page": 201,
+      "printed_page": 200,
+      "width": 643,
+      "height": 243
+    },
+    {
+      "file": "/images/manual/pdf-p202-i00.png",
+      "pdf_page": 202,
+      "printed_page": 201,
+      "width": 833,
+      "height": 677
+    },
+    {
+      "file": "/images/manual/pdf-p202-i01.png",
+      "pdf_page": 202,
+      "printed_page": 201,
+      "width": 833,
+      "height": 677
+    },
+    {
+      "file": "/images/manual/pdf-p203-i00.png",
+      "pdf_page": 203,
+      "printed_page": 202,
+      "width": 738,
+      "height": 126
+    },
+    {
+      "file": "/images/manual/pdf-p203-i01.png",
+      "pdf_page": 203,
+      "printed_page": 202,
+      "width": 515,
+      "height": 175
+    },
+    {
+      "file": "/images/manual/pdf-p204-i00.jpg",
+      "pdf_page": 204,
+      "printed_page": 203,
+      "width": 1070,
+      "height": 832
+    },
+    {
+      "file": "/images/manual/pdf-p204-i01.jpg",
+      "pdf_page": 204,
+      "printed_page": 203,
+      "width": 1070,
+      "height": 832
+    },
+    {
+      "file": "/images/manual/pdf-p205-i00.jpg",
+      "pdf_page": 205,
+      "printed_page": 204,
+      "width": 1070,
+      "height": 832
+    },
+    {
+      "file": "/images/manual/pdf-p205-i01.jpg",
+      "pdf_page": 205,
+      "printed_page": 204,
+      "width": 1070,
+      "height": 832
+    },
+    {
+      "file": "/images/manual/pdf-p206-i00.jpg",
+      "pdf_page": 206,
+      "printed_page": 205,
+      "width": 860,
+      "height": 500
+    },
+    {
+      "file": "/images/manual/pdf-p206-i01.png",
+      "pdf_page": 206,
+      "printed_page": 205,
+      "width": 786,
+      "height": 733
+    },
+    {
+      "file": "/images/manual/pdf-p207-i00.jpg",
+      "pdf_page": 207,
+      "printed_page": 206,
+      "width": 682,
+      "height": 377
+    },
+    {
+      "file": "/images/manual/pdf-p207-i01.png",
+      "pdf_page": 207,
+      "printed_page": 206,
+      "width": 786,
+      "height": 733
+    },
+    {
+      "file": "/images/manual/pdf-p208-i00.jpg",
+      "pdf_page": 208,
+      "printed_page": 207,
+      "width": 786,
+      "height": 733
+    },
+    {
+      "file": "/images/manual/pdf-p211-i00.jpg",
+      "pdf_page": 211,
+      "printed_page": 210,
+      "width": 500,
+      "height": 375
+    },
+    {
+      "file": "/images/manual/pdf-p211-i01.jpg",
+      "pdf_page": 211,
+      "printed_page": 210,
+      "width": 371,
+      "height": 219
+    },
+    {
+      "file": "/images/manual/pdf-p212-i00.jpg",
+      "pdf_page": 212,
+      "printed_page": 211,
+      "width": 487,
+      "height": 194
     }
   ],
-  "editorial_note": "节选整理；原文件保留在项目目录之外。"
+  "editorial_note": "已按主题整理手册第 1-11 章；原文件保留在项目目录之外。引用均使用 PDF 物理页码，并同时标注印刷页码（印刷页码 = PDF 页码 - 1）。"
 }

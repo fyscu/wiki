@@ -18,12 +18,102 @@ items:
       - id: page-fc665ef9e0f8249e3527
         title: 维修知识概述
         path: handbook/index.md
+      - id: page-01m1zwvt7hcg2ryz6grzgfdwhs
+        title: 维修手册导览
+        path: handbook/manual-guide.md
+      - id: section-manual-hardware
+        title: 硬件与存储
+        children:
+          - id: page-01m1zwvt7kbh6fqxsp3dn31fjc
+            title: 计算机工作方式与设备形态
+            path: handbook/computing-basics.md
+          - id: page-01m1zwvt7k1106anrpg34crvcj
+            title: 核心硬件与接口识别
+            path: handbook/hardware-components.md
+          - id: page-01m1zwvt7kg4yppy3ckdchn464
+            title: 显示器、键盘、鼠标与机身材料
+            path: handbook/peripherals-and-display.md
+          - id: page-01m1zwvt7k1cs6v93vrvst0x1p
+            title: 磁盘物理结构与分区表
+            path: handbook/disk-structure.md
+          - id: page-01m1zwvt7k8phpnsq6e1j4by46
+            title: 文件系统、分区与 SSD 使用
+            path: handbook/file-systems-partitions.md
       - id: section-59733b34e45c5e50c1bc
         title: 启动与引导
         children:
           - id: page-3b1e317413a38498eaab
             title: 计算机启动与排障
             path: handbook/startup.md
+          - id: page-01m1zwvt7kj267y5f0ahgzgxf3
+            title: 启动链、BIOS 与固件设置
+            path: handbook/firmware-and-boot.md
+          - id: page-01m1zwvt7kpsfh3c1crdmgw6a0
+            title: 电源状态、UEFI 与 MBR/GPT 引导
+            path: handbook/power-states-uefi.md
+      - id: section-manual-laptop
+        title: 拆装与检测
+        children:
+          - id: page-01m1zwvt7k8xtfb41mts6wf267
+            title: 笔记本拆机准备与连接器识别
+            path: handbook/laptop-disassembly.md
+          - id: page-01m1zwvt7krgfrc9bjz44stn3t
+            title: 笔记本拆机清灰与复装检查
+            path: handbook/laptop-cleaning-reassembly.md
+          - id: page-01m1zwvt7m7zkff4t8er4jxatn
+            title: 启动介质、分区与数据恢复工具
+            path: handbook/repair-media-and-storage-tools.md
+          - id: page-01m1zwvt7mrxhcxavemhncw8ek
+            title: 硬件检测、健康检查与压力测试
+            path: handbook/diagnostics-and-stress-tools.md
+  - id: section-manual-network
+    title: 网络与连接
+    children:
+      - id: page-01m1zwvt7ks51h8v3sjgjn546v
+        title: 网络寻址、分层与接入方式
+        path: network/network-basics.md
+      - id: page-01m1zwvt7kf3k4jgf40akkqtra
+        title: 网络修复与路由器配置
+        path: network/network-repair-router.md
+      - id: page-01m1zwvt7k7ba6rzkr0zyy1yb7
+        title: 四川大学校园网历史配置记录
+        path: network/campus-network-history.md
+      - id: page-01m1zwvt7kee904w3hc30czz8x
+        title: ping 分层诊断与浏览器内核
+        path: network/ping-browser.md
+  - id: section-manual-software
+    title: 系统与软件
+    children:
+      - id: page-01m1zwvt7k467zaq1xsrjzzsrx
+        title: 操作系统职责与平台差异
+        path: software/operating-systems.md
+      - id: page-01m1zwvt7kf44gj1k7dajqmp2s
+        title: Windows 注册表与 REG 文件
+        path: software/windows-registry.md
+      - id: page-01m1zwvt7kt4qaz9phj7bh3f09
+        title: Windows 安装准备与版本选择
+        path: software/windows-installation-basics.md
+      - id: page-01m1zwvt7kd4z7tjqsbfe8nqaz
+        title: Windows 安装、引导匹配与系统迁移
+        path: software/windows-installation-and-migration.md
+      - id: page-01m1zwvt7k8nz0kn2qfm5qxhw0
+        title: 双系统与虚拟机
+        path: software/dual-boot-virtualization.md
+      - id: page-01m1zwvt7mc7ayac91wsymaaaj
+        title: Mac 恢复与 Boot Camp 历史流程
+        path: software/mac-recovery-bootcamp.md
+      - id: page-01m1zwvt7mr5vr3mskxkt7f7ba
+        title: Windows 日常维护与快捷键
+        path: software/maintenance-and-shortcuts.md
+      - id: page-01m1zwvt7mbwa6dkdfm6r5y2md
+        title: 日常保养、进水与蓝屏处置
+        path: software/maintenance-incident-response.md
+      - id: page-01m1zwvt7md7qx81cnshremymb
+        title: Adobe 与 AutoCAD 安装
+        path: software/software-installation-history.md
+      - id: page-01m1zwvt7m28sgfyn0ddvcxvkr
+        title: GB、GiB、压缩与 USB 接口
+        path: software/storage-formats-and-usb.md
   - id: section-a5766561923770e091d0
     title: 知识问答
     children:
