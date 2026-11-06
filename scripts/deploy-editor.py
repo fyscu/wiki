@@ -87,7 +87,7 @@ environment = {
     'PATH': str(node_dir / 'bin') + ':/usr/bin:/bin',
     'GIT_SSH_COMMAND': f'ssh -i {key} -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile={known_hosts}',
     'EDITOR_ROOT': str(ROOT), 'EDITOR_REPO': str(ROOT / 'app'), 'EDITOR_SITE': str(content), 'EDITOR_DEPS': str(ROOT / 'app'),
-    'WIKI_PYTHON': str(venv / 'bin/python'), 'QA_ORIGIN': 'http://127.0.0.1:9080', 'WIKI_ORIGIN': 'https://wiki.feiyang.ac.cn', 'EDITOR_PORT': '9090',
+    'WIKI_PYTHON': str(venv / 'bin/python'), 'QA_ORIGIN': 'http://10.66.66.2:9080', 'WIKI_ORIGIN': 'https://wiki.feiyang.ac.cn', 'EDITOR_PORT': '9090',
     'NODE_OPTIONS': '--max-old-space-size=512',
 }
 config = ROOT / 'editor.env'
