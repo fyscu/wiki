@@ -1,0 +1,18 @@
+{
+  "_comment": "统一登录 Provider 配置模板。复制为 sso.local.json 并填入真实值；sso.local.json 已 gitignore，绝不入仓。",
+  "secret": "REPLACE_WITH_64_BYTES_RANDOM_HEX",
+  "client_id": "feiyang-wiki",
+  "client_secret": "REPLACE_WITH_RANDOM_SHARED_SECRET",
+  "redirect_uri": "https://wiki.feiyang.ac.cn/answer/api/v1/connector/redirect/basic",
+  "login_origin": "https://sso.feiyang.ac.cn",
+  "wiki_origin": "https://wiki.feiyang.ac.cn",
+  "foc_origin": "https://focapi.feiyang.ac.cn",
+  "answer_origin": "http://10.66.66.2:9080",
+  "lookup_key": "REPLACE_WITH_LOOKUP_ENDPOINT_HMAC_KEY",
+  "methods": ["qr", "email_code", "password"],
+  "_notes": [
+    "connector-basic 后台配置：user_id_json_path=id, user_display_name_json_path=name, user_username_json_path=username, user_email_json_path=email, user_avatar_json_path=avatar_url, email_verified_json_path=email_verified, check_email_verified=true",
+    "authorize_url=https://sso.feiyang.ac.cn/authorize, token_url=https://sso.feiyang.ac.cn/token, user_json_url=https://sso.feiyang.ac.cn/userinfo",
+    "shadow 环境把 login_origin/redirect_uri/wiki_origin 换成影子域名，不影响生产配置"
+  ]
+}

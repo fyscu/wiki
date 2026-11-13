@@ -8,7 +8,14 @@ const busy = ref(false), error = ref(''), notice = ref('')
 const settings = ref<any>(null)
 const captcha = ref<InstanceType<typeof Captcha>>()
 const registrationOpen = computed(() => settings.value?.mail_ready && settings.value?.allow_new_registrations && settings.value?.allow_email_registrations)
-onMounted(async () => { try { settings.value = await accountSettings() } catch (cause) { error.value = cause.message } })
+// 统一登录入口：交给 Answer connector 发起 OAuth2，登录后回到 /users/auth-landing/。
+// next 预先落 sessionStorage，落地页据此跳回原页面。
+const ssoHref = '/answer/api/v1/connector/login/basic'
+onMounted(async () => {
+  const next = new URLSearchParams(location.search).get('next')
+  if (next) sessionStorage.setItem('feiyang-sso-next', safeReturnPath(next, location.origin))
+  try { settings.value = await accountSettings() } catch (cause) { error.value = cause.message }
+})
 async function submit() {
   if (busy.value || !captcha.value?.ready) return
   error.value = ''; notice.value = ''
@@ -47,6 +54,10 @@ async function submit() {
         <button class="qa-primary" type="submit" :disabled="busy || !captcha?.ready">{{ busy ? '正在提交…' : mode === 'login' ? '登录' : '创建账号' }}</button>
         <a v-if="settings?.mail_ready && mode === 'login'" href="/users/password-reset/">忘记密码</a>
       </form>
+      <div v-if="mode === 'login'" class="qa-sso-entry">
+        <p class="qa-muted">已有云上飞扬账号？可用扫码或邮箱验证码登录</p>
+        <a class="qa-secondary" :href="ssoHref">云上飞扬统一登录</a>
+      </div>
       <p v-else><a href="/login/">返回登录</a></p>
     </template>
   </div>

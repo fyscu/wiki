@@ -22,3 +22,6 @@ docs/public/article-manifest.json
 *.key
 *.p12
 *.pfx
+sso.local.json
+*.local.json
+!sso.config.example.json

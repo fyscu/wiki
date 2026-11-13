@@ -62,3 +62,32 @@ node scripts/set-registration.mjs --enable
 通知链接规则位于 `lib/answer-links.mjs`。发送接口按 IP 限流；图形验证码界面随后台插件状态显示。
 
 `npm run test:mail` 使用独立 SQLite 实例和本机 SMTP 收件器，覆盖登录、邮箱验证、密码重置、通知链接及退订。测试地址使用 `@wiki-mail.test`。
+
+## 统一登录（2026-11-13，影子验证通过，待上线）
+
+登录页新增「云上飞扬统一登录」入口，提供三种方式：云上飞扬扫码（复用 `qrlogin_*`）、邮箱验证码（复用 `emailsend.php` / `emaillogin.php`）、Wiki 账户密码（沿用本页原生登录）。前两种走标准 OAuth2 授权码，由 Answer 官方 `connector-basic` 插件完成建号/绑定与会话签发；本仓不签发 Answer token、不改 Answer Go 源码。
+
+**组件**
+
+| 位置 | 职责 |
+| --- | --- |
+| `lib/sso-core.mjs` | 票据/断言/授权码的 HMAC 签名、定长填充防枚举、`state` 原样回传 |
+| `scripts/sso-provider.mjs` | OAuth2 Provider：`/authorize`、`/api/*`、`/token`、`/userinfo` |
+| `scripts/sso-login-page.mjs` | 自包含统一登录页（无外部资源、无构建步骤） |
+| `community/AuthLanding.vue` | 接 `/users/auth-landing/?access_token=` 落地会话 |
+| `deploy/sso-connector.conf.example` | nginx 白名单（放行 connector 三条路径 + `sso` 子域） |
+| `scripts/build-answer-sso.ps1` | 在队友 login 补丁构建的镜像里补编官方 connector 插件 |
+| `scripts/bind-existing-users.sh` | 上线前把存量 Wiki 账号预绑定主表 uid（dry-run 默认） |
+
+配置复制 `sso.config.example.json` 为 `sso.local.json`（已 gitignore）。foc 侧新增 `v1/sso/lookup.php`、`v1/sso/identity.php`，凭据走 `utils/sso.local.php`（`*.local.php` 已忽略）。
+
+**顺序（不可颠倒）**
+
+1. 影子验证：`node --test tests/sso-core.test.mjs tests/sso-provider.test.mjs`（16 项）+ 物理机影子库/影子 PHP 端点联调 + 真实进程模拟 Go `oauth2` 客户端（15 项）。
+2. 构建带 `connector-basic` 的二进制，`<binary> plugin` 必须同时列出 `basic_reviewer` 与 connector；用 `scripts/deploy-answer-login.py --sha256 <hash>` 先 `--` 建镜像、再 `--activate` 换容器（脚本自带备份与回滚）。
+3. `scripts/bind-existing-users.sh` 先 dry-run 再 `--apply`：存量用户没有 `user_external_login` 记录时，Answer 的 `ExternalLogin` 会因邮箱已存在直接拒绝。
+4. 后台启用 connector 并填 `sso.config.example.json` 注释里的字段；`check_email_verified=true`、`email_verified_json_path=email_verified`。
+5. 加 `sso.feiyang.ac.cn` 的 DNS 与 server 块（通配证已覆盖），放开 nginx 白名单，起 Provider 服务。
+6. 用真实账号走三种方式各一次；异常时停用 connector 即回到原有密码登录，无需回滚数据。
+
+**安全边界**：账号探测响应结构与长度恒定，真实命中结果只进 HMAC 票据；扫码/邮箱码验证后强制核对「foc 账号邮箱 === 票据锁定邮箱」，防止 A 填邮箱、B 扫码顶号；`external_id` 一律用主表 uid。
