@@ -1,0 +1,44 @@
+name: feiyang-wiki-v3
+
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      CADDY_WIKI_ADDRESS: ${CADDY_WIKI_ADDRESS:-${WIKI_DOMAIN:-wiki.feiyang.ac.cn}}
+      CADDY_BBS_ADDRESS: ${CADDY_BBS_ADDRESS:-${BBS_DOMAIN:-bbs.feiyang.ac.cn}}
+      BBS_UPSTREAM: ${BBS_UPSTREAM:-host.docker.internal:8080}
+      WIKI_SITE_URL: ${WIKI_SITE_URL:-https://${WIKI_DOMAIN:-wiki.feiyang.ac.cn}/}
+    ports:
+      - "${CADDY_BIND:-0.0.0.0}:${CADDY_HTTP_PORT:-80}:80"
+      - "${CADDY_BIND:-0.0.0.0}:${CADDY_HTTPS_PORT:-443}:443"
+      - "${CADDY_BIND:-0.0.0.0}:${CADDY_HTTPS_PORT:-443}:443/udp"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - wiki-site:/srv:ro
+      - caddy-data:/data
+      - caddy-config:/config
+
+  wiki-builder:
+    build:
+      context: ..
+      dockerfile: deploy/builder/Dockerfile
+    restart: unless-stopped
+    environment:
+      WIKI_SITE_URL: ${WIKI_SITE_URL:-https://${WIKI_DOMAIN:-wiki.feiyang.ac.cn}/}
+      BBS_URL: ${BBS_URL:-https://${BBS_DOMAIN:-bbs.feiyang.ac.cn}/}
+      GITHUB_REPO: ${GITHUB_REPO:-fyscu/wiki}
+      GITHUB_REPO_URL: https://github.com/${GITHUB_REPO:-fyscu/wiki}
+      GITHUB_WEBHOOK_SECRET: ${GITHUB_WEBHOOK_SECRET:?Set GITHUB_WEBHOOK_SECRET in .env}
+      DISCOURSE_URL: ${DISCOURSE_URL:-}
+    volumes:
+      - wiki-site:/srv
+      - wiki-source:/workspace
+
+volumes:
+  wiki-site:
+  wiki-source:
+  caddy-data:
+  caddy-config:

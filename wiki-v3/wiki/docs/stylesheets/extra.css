@@ -1,0 +1,8 @@
+:root {
+  --md-text-font: "Inter", "PingFang SC", "Microsoft YaHei UI", sans-serif;
+}
+
+[data-md-color-scheme="slate"] .md-typeset img {
+  background-color: #e5e7eb;
+  border-radius: 0.3rem;
+}

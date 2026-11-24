@@ -1,0 +1,16 @@
+{$CADDY_WIKI_ADDRESS} {
+	handle /_hooks/* {
+		reverse_proxy wiki-builder:9000
+	}
+
+	handle {
+		root * /srv/wiki
+		encode zstd gzip
+		file_server
+	}
+}
+
+{$CADDY_BBS_ADDRESS} {
+	redir /_wiki/ {$WIKI_SITE_URL} 302
+	reverse_proxy {$BBS_UPSTREAM}
+}

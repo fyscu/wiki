@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/npm/@sveltia/cms@0.271.3/schema/sveltia-cms.json
+backend:
+  name: github
+  repo: fyscu/wiki
+  branch: main
+  auth_methods: [token]
+
+media_folder: wiki-v3/wiki/docs/images/manual
+public_folder: /images/manual
+omit_empty_optional_fields: true
+
+collections:
+  - name: handbook
+    label: 维修知识
+    folder: wiki-v3/wiki/docs/handbook
+    create: false
+    delete: false
+    fields: &article
+      - { name: title, label: 标题, widget: string, required: false }
+      - { name: description, label: 简介, widget: text, required: false }
+      - { name: doc_id, widget: hidden, required: false }
+      - { name: manual_pages, label: 手册页码, widget: list, field: { name: page, widget: number }, required: false }
+      - { name: owners, label: 维护者, widget: list, required: false }
+      - { name: tags, label: 标签, widget: list, required: false }
+      - { name: updated, label: 更新时间, widget: string, required: false }
+      - { name: body, label: 正文, widget: markdown, modes: [raw, rich_text] }
+  - name: network
+    label: 网络与连接
+    folder: wiki-v3/wiki/docs/network
+    create: false
+    delete: false
+    fields: *article
+  - name: software
+    label: 系统与软件
+    folder: wiki-v3/wiki/docs/software
+    create: false
+    delete: false
+    fields: *article
+  - name: intro
+    label: 简介
+    folder: wiki-v3/wiki/docs/intro
+    create: false
+    delete: false
+    fields: *article
