@@ -10,8 +10,9 @@ if [ -d "$repo/.git" ]; then
     git -C "$repo" remote set-url origin "$origin"
     git -C "$repo" pull --ff-only origin main
 else
-    git clone --branch main "$origin" "$repo"
+    git clone --depth 1 --filter=blob:none --sparse --branch main "$origin" "$repo"
 fi
+git -C "$repo" sparse-checkout set wiki-v3/wiki
 
 mkdocs build --strict -f "$repo/wiki-v3/wiki/mkdocs.yml" -d /srv/wiki_next
 release=$(mktemp -d /srv/wiki-release.XXXXXX)
