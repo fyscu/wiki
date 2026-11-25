@@ -9,6 +9,7 @@
 ## 主题、配色与 Wiki 回链
 
 - [ ] 在后台 **外观 → 主题**（`/admin/config/customize/themes`）将内置 **Horizon** 设为默认主题。退出登录后刷新论坛，确认访客页面也应用了 Horizon。 [Horizon 说明](https://meta.discourse.org/t/horizon-theme/360486)
+- [ ] 在后台 **外观 → 徽标**（`/admin/config/logo`）将[标准 Logo](标准logo.png)上传为主要徽标。
 - [ ] 如需自定义飞扬配色，在 **外观 → 颜色**（`/admin/config/colors`）以 Horizon 的配色为基础建立下表两套色板，分别设为主题默认浅色和深色。 [官方配色配置](https://meta.discourse.org/t/customize-your-site-branding/258307)
 
 | 字段 | 飞扬浅色 | 飞扬深色 |

@@ -29,9 +29,7 @@ env:
   DISCOURSE_SMTP_USER_NAME: forum@example.com
   DISCOURSE_SMTP_PASSWORD: "replace-with-smtp-password"
   DISCOURSE_NOTIFICATION_EMAIL: forum@example.com
-  DISCOURSE_SMTP_ENABLE_START_TLS: "true"
-  DISCOURSE_SMTP_FORCE_TLS: "false"
-  # For implicit TLS on port 465, set FORCE_TLS to true and ENABLE_START_TLS to false.
+  # For implicit TLS on port 465, set DISCOURSE_SMTP_FORCE_TLS to true.
 
 volumes:
   - volume:
