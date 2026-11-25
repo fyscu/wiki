@@ -1,5 +1,6 @@
 ---
 title: 笔记本拆机清灰与复装检查
+description: ''
 doc_id: 01m1zwvt7krgfrc9bjz44stn3t
 manual_pages:
   - 134
@@ -12,9 +13,8 @@ tags:
   - 散热
 updated: 2026-09-08T00:00:00.000Z
 ---
-# 笔记本拆机清灰与复装检查
 
-<!-- PDF 第 134 页；印刷第 133 页 -->
+# 笔记本拆机清灰与复装检查
 
 ### 第二节：拆机步骤
 
