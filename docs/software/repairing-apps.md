@@ -1,12 +1,9 @@
 ---
 title: "软件卸载与 DLL 缺失"
-description: "原手册中的卸载工具、清理软件和 DLL 缺失排查。"
+description: "卸载工具、清理软件和 DLL 缺失排查。"
 ---
 
 # 软件卸载与 DLL 缺失
-
-!!! note "原手册软件简介"
-    日常卸载可以先用 Windows「设置 → 应用」。注册表清理和强制卸载容易删掉仍在使用的配置，处理具体故障时先看应用的官方说明。
 
 ## Total Uninstall
 
@@ -22,9 +19,4 @@ CCleaner 的主要用来清除Windows 系统不再使用的垃圾文件，以腾
 
 ## DLL 文件缺失
 
-原手册建议，缺少 DLL 时，可以先确认该文件属于哪一个软件，再重新安装这个软件。
-
-!!! note "按软件来源修复"
-    优先用应用的安装包或官方运行库修复，避免单独下载来历不明的 DLL。Windows 自带文件缺失时，可参考 [Microsoft 的系统文件检查说明](https://support.microsoft.com/en-us/windows/experience/performance-optimization/using-system-file-checker-in-windows)。
-
-来源：四川大学飞扬俱乐部《维修手册》第十章第四至五节，印刷页 187–189。
+缺少 DLL 时，可以先确认该文件属于哪一个软件，再重新安装这个软件。

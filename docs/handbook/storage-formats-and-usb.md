@@ -27,9 +27,9 @@ GiB：Gibibyte（giga binary byte 的缩写）是信息或计算机硬盘存储�
 
 ### 外观
 
-USB 3.0 中间塑料片为蓝色，而USB 2.0 中间塑料片为黑色或者白色。但如果设备上只有USB 3.0 接口的时候，中间塑料片可能为黑色，不会做颜色区分。
+部分 USB 3.0 接口使用蓝色塑料片，USB 2.0 则常见黑色或白色。不同设备的配色可以相同。
 
-![原手册的 USB Type-A 接口外观对比](../images/manual/pdf-p211-i00.jpg)
+![USB Type-A 接口外观对比](../images/manual/pdf-p211-i00.jpg)
 
 ### 引脚
 
@@ -41,9 +41,4 @@ USB 3.0 的标准 Type-A 接头的针脚是9 针，而USB 2.0 的标准 Type-A �
 
 USB 2.0 的标志和USB 3.0 的标志有一定区别，USB 3.0 有一个SS 标志，意思是SuperSpeed，部分的设备上面会有这个标志。
 
-![原手册的 USB 标志与 SuperSpeed 标志](../images/manual/pdf-p212-i00.jpg)
-
-!!! note "选购时看设备规格"
-    插头颜色不是可靠标准。USB-C 表示接口形状，实际速率还取决于主机、线缆和设备。可参考 [USB-IF 的速率标识](https://www.usb.org/usb-32-0)。
-
-来源：四川大学飞扬俱乐部《维修手册》第十一章第三、五节，印刷页 207、209–211。
+![USB 标志与 SuperSpeed 标志](../images/manual/pdf-p212-i00.jpg)
