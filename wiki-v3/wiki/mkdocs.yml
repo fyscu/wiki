@@ -31,11 +31,8 @@ theme:
         icon: material/brightness-4
         name: 切换浅色模式
   features:
-    - navigation.instant
-    - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.top
     - navigation.footer
     - toc.follow
