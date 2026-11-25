@@ -72,8 +72,6 @@ extra_css:
   - stylesheets/extra.css
 
 validation:
-  nav:
-    omitted_files: warn
   links:
     absolute_links: relative_to_docs
     anchors: warn

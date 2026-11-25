@@ -13,8 +13,9 @@ collections:
   - name: handbook
     label: 维修知识
     folder: wiki-v3/wiki/docs/handbook
-    create: false
     delete: false
+    nested: &article_tree { subfolders: false }
+    meta: &article_path { path: {} }
     fields: &article
       - { name: title, label: 标题, widget: string, required: false }
       - { name: description, label: 简介, widget: text, required: false }
@@ -27,18 +28,21 @@ collections:
   - name: network
     label: 网络与连接
     folder: wiki-v3/wiki/docs/network
-    create: false
     delete: false
+    nested: *article_tree
+    meta: *article_path
     fields: *article
   - name: software
     label: 系统与软件
     folder: wiki-v3/wiki/docs/software
-    create: false
     delete: false
+    nested: *article_tree
+    meta: *article_path
     fields: *article
   - name: intro
     label: 简介
     folder: wiki-v3/wiki/docs/intro
-    create: false
     delete: false
+    nested: *article_tree
+    meta: *article_path
     fields: *article
