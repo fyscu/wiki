@@ -1,103 +1,58 @@
 ---
-title: Adobe 与 AutoCAD 安装
+title: 安装 Adobe 与 AutoCAD
+description: 使用软件厂商的安装入口，检查设备要求、课程版本和教育许可。
 doc_id: 01m1zwvt7md7qx81cnshremymb
-manual_pages:
-  - 201
-  - 207
+manual_pages: [201, 207]
 owners:
   - maintenance-team
 tags:
   - 软件安装
   - 历史资料
   - 许可
-updated: 2026-09-08T00:00:00.000Z
 ---
-# Adobe 与 AutoCAD 安装
 
-<!-- PDF 第 201 页；印刷第 200 页 -->
+# 安装 Adobe 与 AutoCAD
 
-## 第十一章：软件安装与其他知识
+## Adobe 系列软件安装
 
-### 第一节：ADOBE 系列软件安装
+我们经常使用的 PS、PR、AE 等软件就是 Adobe 公司出品的，接下来我们以 PS CC 为例进行讲述。
 
-我们经常使用的 PS、PR、AE 等软件就是 Adobe 公司出品的，接下来我们以 PS CC为例进行讲述。
+> **编注**　此节以手册中的 Photoshop CC 为例。当前从 [Adobe 官方帮助](https://helpx.adobe.com/cn/download-install/apps/download-install-apps/creative-cloud-apps/download-creative-cloud-desktop-app-using-direct-links.html)下载 Creative Cloud，使用具有许可的账户登录后选择产品和版本。下图是旧版安装界面。
 
-1. 断开网络连接，关闭所有杀毒软件（包括 360 安全卫士等）
-
-2. 我们将软件压缩包解压后一般会得到如图所示的文件，还有用来破解软件的注册机。（本次演示用的是嬴政天下的大师版，已经是破解过的）
-
-3. 双击 Set-up.exe，此时我们可能会遇到如图所示的窗口，我们只需要点忽略就好。
-
-4. 点击安装
-
-![原手册插图（PDF 第 201 页）](../images/manual/pdf-p201-i00.png)
-
-![原手册插图（PDF 第 201 页）](../images/manual/pdf-p201-i01.png)
-
-<!-- PDF 第 202 页；印刷第 201 页 -->
-
-5. 等待安装完成
+**1.** 选择要安装的 Adobe 应用，然后点击安装。
 
 ![原手册插图（PDF 第 202 页）](../images/manual/pdf-p202-i00.png)
 
+**2.** 等待安装完成。
+
 ![原手册插图（PDF 第 202 页）](../images/manual/pdf-p202-i01.png)
 
-<!-- PDF 第 203 页；印刷第 202 页 -->
+## AutoCAD 安装
 
-PS：如果是官方安装包，我们需要断网后点稍后登录与脱机激活。也可以在安装完成后用破解器破解。这根据每个人使用的注册机或破解器的软件不同，破解过程不同。
+AutoCAD 是许多工科生都会用到的软件，下面我们以 AutoCAD 2018 为例进行讲解。
 
-要根据破解器或注册机的使用说明来看。
+> **编注**　下列截图记录的是 AutoCAD 2018 的安装流程。当前安装从 Autodesk 官方账户下载。符合条件的学生和教师可申请 [Autodesk 教育许可](https://www.autodesk.com.cn/support/account/education/students-educators/overview)。
 
-### 第二节：AUTOCAD 安装
-
-AutoCAD 是许多工科生都会用到的软件，下面我们以 CAD2018 为例进行讲解
-
-1. 断开网络连接，关闭所有杀毒软件（包括 360 安全卫士等）
-
-2. 双击打开安装程序，然后选择安装解压路径。
-
-3. 待解压完成后，选择安装
+**1.** 双击打开官方安装程序，然后选择安装解压路径。
 
 ![原手册插图（PDF 第 203 页）](../images/manual/pdf-p203-i00.png)
 
 ![原手册插图（PDF 第 203 页）](../images/manual/pdf-p203-i01.png)
 
-<!-- PDF 第 204 页；印刷第 203 页 -->
-
-4. 选择我接受，下一步
-
-5. 选择要安装的软件和安装路径
+**2.** 待解压完成后，选择安装。
 
 ![原手册插图（PDF 第 204 页）](../images/manual/pdf-p204-i00.jpg)
 
+**3.** 选择我接受，下一步
+
 ![原手册插图（PDF 第 204 页）](../images/manual/pdf-p204-i01.jpg)
 
-<!-- PDF 第 205 页；印刷第 204 页 -->
-
-6. 安装完成
-
-7. 打开 CAD，选择输入序列号
+**4.** 选择要安装的软件和安装路径
 
 ![原手册插图（PDF 第 205 页）](../images/manual/pdf-p205-i00.jpg)
 
+**5.** 安装完成后，登录 Autodesk 账户并按已授予的许可使用。
+
 ![原手册插图（PDF 第 205 页）](../images/manual/pdf-p205-i01.jpg)
 
-<!-- PDF 第 206 页；印刷第 205 页 -->
-
-8. 输入序列号：666-69696969，密钥：001J1
-
-![原手册插图（PDF 第 206 页）](../images/manual/pdf-p206-i00.jpg)
-
-![原手册插图（PDF 第 206 页）](../images/manual/pdf-p206-i01.png)
-
-<!-- PDF 第 207 页；印刷第 206 页 -->
-
-9. 选择“我具有 Autodesk 提供的激活码”
-
-10. 以管理员身份打开注册机，将申请号复制粘贴到请求码一栏，点击生成，再把生成码粘贴到安装程序中，然后点下一步即可。
-
-![原手册插图（PDF 第 207 页）](../images/manual/pdf-p207-i00.jpg)
-
-![原手册插图（PDF 第 207 页）](../images/manual/pdf-p207-i01.png)
-
-来源：四川大学飞扬俱乐部《维修手册》PDF 第 201-207 页（印刷页 200-206）。
+本篇依据四川大学飞扬俱乐部《维修手册》印刷第 200–206 页（PDF 第 201–207 页）整理。

@@ -11,7 +11,7 @@ omit_empty_optional_fields: true
 
 collections:
   - name: handbook
-    label: 维修知识
+    label: 硬件与维修
     folder: docs/handbook
     delete: false
     nested: &article_tree { subfolders: false }
@@ -33,14 +33,21 @@ collections:
     meta: *article_path
     fields: *article
   - name: software
-    label: 系统与软件
+    label: 数字生活与效率
     folder: docs/software
     delete: false
     nested: *article_tree
     meta: *article_path
     fields: *article
+  - name: development
+    label: 开发与折腾
+    folder: docs/development
+    delete: false
+    nested: *article_tree
+    meta: *article_path
+    fields: *article
   - name: intro
-    label: 简介
+    label: 共建与论坛
     folder: docs/intro
     delete: false
     nested: *article_tree

@@ -1,15 +1,19 @@
 ---
-title: 维修知识
-updated: 2026-09-08
+title: 故障速查
+description: 按不开机、进水、蓝屏、断网等常见症状找到对应的排查指南。
 ---
-# 维修知识
 
-## 启动与引导
+# 故障速查
 
-- [计算机启动与排障](startup.md)：识别启动阶段，判断应该检查供电、固件、引导还是操作系统。
+| 症状 | 阅读 |
+| --- | --- |
+| 无指示灯、风扇不转、上电后黑屏或进入不了系统 | [计算机启动与排障](startup.md) |
+| 笔记本进液 | [笔记本进水急救](liquid-spill.md) |
+| Windows 蓝屏或异常重启 | [Windows 蓝屏排查](windows-stop-errors.md) |
+| 存储设备掉盘、误删文件 | [启动介质、分区与数据恢复工具](repair-media-and-storage-tools.md) |
+| 发热、散热口有积灰 | [电脑使用与日常保养](daily-care.md) · [笔记本拆机清灰与复装检查](laptop-cleaning-reassembly.md) |
+| 校园网无法登录或连上却打不开网页 | [四川大学校园网接入与排障](../network/campus-network-history.md) |
 
-## 排查思路
+从基础开始读，可先看[计算机工作方式与设备形态](computing-basics.md)。需要找原手册中的某一章，可看[维修手册导览](manual-guide.md)。
 
-先记录现象和最近的变化，再选择能验证判断的操作。每次改变一个条件，保留结果，避免连续修改多个设置后无法复现。
-
-需要讨论具体情况时，可以在[问答社区](https://forum.feiyang.ac.cn)中补充设备型号、错误信息和已经尝试的步骤。
+需要讨论具体情况时，可以在[飞扬论坛](https://forum.feiyang.ac.cn)补充设备型号、错误信息和已经尝试的步骤。

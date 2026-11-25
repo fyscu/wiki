@@ -1,25 +1,26 @@
 ---
 title: 飞扬 Wiki
+description: 四川大学飞扬俱乐部的硬件维修、校园网络、数字生活和技术实践知识库。
 ---
 
 # 飞扬 Wiki
 
-## 欢迎来到飞扬 Wiki！
+这里是四川大学飞扬俱乐部的知识库。维修和网络文档以俱乐部《维修手册》为基础，可按故障或主题查阅。
 
-**飞扬 Wiki** 是四川大学飞扬俱乐部的知识库，记录电脑维护、故障排查与技术实践中的知识和经验。
+## 故障速查
 
-我们希望将一次次维修中积累的经验整理成可查阅、可讨论、可持续完善的资料，让知识在实践中流动。
+| 遇到的问题 | 先看这里 |
+| --- | --- |
+| 按电源键没反应、亮灯却黑屏或进不了系统 | [计算机启动与排障](handbook/startup.md) |
+| 笔记本进水 | [进水急救](handbook/liquid-spill.md) |
+| Windows 蓝屏或反复出现停止代码 | [Windows 蓝屏排查](handbook/windows-stop-errors.md) |
+| 四川大学校园网连不上 | [校园网接入与排障](network/campus-network-history.md) |
 
-## 从这里开始
+## 按主题阅读
 
-- [维修知识](handbook/index.md)：了解问题、建立排查思路。
-- [计算机启动与排障](handbook/startup.md)：从加电、自检到系统启动，定位故障阶段。
-- [问答社区](https://forum.feiyang.ac.cn)：提出具体问题，交流经验与解法。
+- [硬件与维修](handbook/index.md)收录硬件识别、启动与引导、拆装和检测。可按[原手册章节](handbook/manual-guide.md)查找。
+- [网络与连接](network/campus-network-history.md)收录校园网、路由器、IP 与 DNS 以及 ping 诊断。
+- [数字生活与效率](software/operating-systems.md)收录系统安装、文件归档、日常软件和快捷键。
+- [开发与折腾](development/virtual-machines.md)收录虚拟机、开发环境和注册表。
 
-## 一起完善知识库
-
-文档需要经过实践检验，也会随着软硬件变化而更新。发现不准确的内容，或希望补充自己的经验，可以[参与贡献](contribute.md)，也可以在文章下方发起讨论。
-
----
-
-四川大学飞扬俱乐部 · 用信息科技让校园生活更美好
+查不到答案可以到[飞扬论坛](https://forum.feiyang.ac.cn)发帖。遇到文档问题或想补充经验，欢迎[参与共建](contribute.md)。
