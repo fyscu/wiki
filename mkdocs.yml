@@ -117,7 +117,7 @@ nav:
       - Adobe 与 AutoCAD 安装: software/software-installation-history.md
       - GB、GiB、压缩与 USB 接口: software/storage-formats-and-usb.md
   - 参与贡献: contribute.md
-  - 问答社区: &bbs_url !ENV [BBS_URL, "https://bbs.feiyang.ac.cn"]
+  - 问答社区: &bbs_url !ENV [BBS_URL, "https://forum.feiyang.ac.cn"]
 
 extra:
   generator: false

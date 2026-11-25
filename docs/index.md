@@ -14,7 +14,7 @@ title: 飞扬 Wiki
 
 - [维修知识](handbook/index.md)：了解问题、建立排查思路。
 - [计算机启动与排障](handbook/startup.md)：从加电、自检到系统启动，定位故障阶段。
-- [问答社区](https://bbs.feiyang.ac.cn)：提出具体问题，交流经验与解法。
+- [问答社区](https://forum.feiyang.ac.cn)：提出具体问题，交流经验与解法。
 
 ## 一起完善知识库
 

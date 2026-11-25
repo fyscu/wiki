@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {{ super() | replace('href="https://bbs.feiyang.ac.cn"', 'href="' ~ (config.extra.bbs_url | e) ~ '"') }}
+  {{ super() | replace('href="https://forum.feiyang.ac.cn"', 'href="' ~ (config.extra.bbs_url | e) ~ '"') }}
   {% if config.extra.discourse_url and page and not page.is_homepage and page.file.src_uri != 'index.md' %}
     <div id="discourse-comments"></div>
     <script>
