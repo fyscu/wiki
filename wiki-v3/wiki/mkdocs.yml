@@ -11,7 +11,7 @@ theme:
   custom_dir: overrides
   language: zh
   logo: images/manual/club-mark.webp
-  favicon: images/manual/club-mark.webp
+  favicon: favicon.png
   font:
     text: Inter
     code: JetBrains Mono
