@@ -28,15 +28,15 @@ updated: 2026-09-08T00:00:00.000Z
 
 在任务栏中可以通过 右键➔结束进程 结束停止响应的程序在任务管理器中可以看到正在运行的进程
 
-![原手册插图（PDF 第 167 页）](/images/manual/pdf-p167-i00.png)
+![原手册插图（PDF 第 167 页）](../images/manual/pdf-p167-i00.png)
 
 <!-- PDF 第 168 页；印刷第 167 页 -->
 
 点击“性能”可以查看系统目前的 CPU、内存、硬盘、网络的使用情况
 
-![原手册插图（PDF 第 168 页）](/images/manual/pdf-p168-i00.png)
+![原手册插图（PDF 第 168 页）](../images/manual/pdf-p168-i00.png)
 
-![原手册插图（PDF 第 168 页）](/images/manual/pdf-p168-i01.png)
+![原手册插图（PDF 第 168 页）](../images/manual/pdf-p168-i01.png)
 
 <!-- PDF 第 169 页；印刷第 168 页 -->
 
@@ -74,7 +74,7 @@ updated: 2026-09-08T00:00:00.000Z
 
 没有使用外接电源时可以选为节能，可以更省电。也可以根据自己的实际情况添加新的计划。
 
-![原手册插图（PDF 第 170 页）](/images/manual/pdf-p170-i00.png)
+![原手册插图（PDF 第 170 页）](../images/manual/pdf-p170-i00.png)
 
 <!-- PDF 第 171 页；印刷第 170 页 -->
 
@@ -84,9 +84,9 @@ updated: 2026-09-08T00:00:00.000Z
 
 建议一个月整理一次。选中一个磁盘➔右击➔属性➔工具➔立即进行碎片整理，碎片超过10%，则需整理，否则不必。(固态硬盘不需要进行碎片整理，win10 进行的是优化)
 
-![原手册插图（PDF 第 171 页）](/images/manual/pdf-p171-i00.png)
+![原手册插图（PDF 第 171 页）](../images/manual/pdf-p171-i00.png)
 
-![原手册插图（PDF 第 171 页）](/images/manual/pdf-p171-i01.png)
+![原手册插图（PDF 第 171 页）](../images/manual/pdf-p171-i01.png)
 
 <!-- PDF 第 172 页；印刷第 171 页 -->
 
@@ -108,7 +108,7 @@ updated: 2026-09-08T00:00:00.000Z
 
 - windows 键或 CTRL+ESC 打开开始菜单
 
-![原手册插图（PDF 第 172 页）](/images/manual/pdf-p172-i00.png)
+![原手册插图（PDF 第 172 页）](../images/manual/pdf-p172-i00.png)
 
 <!-- PDF 第 173 页；印刷第 172 页 -->
 

@@ -24,11 +24,11 @@ updated: 2026-09-08T00:00:00.000Z
 
 - 605 不能设置端口信息方法：删除并重新创建“ 网络和拨号连接” ；
 
-![原手册插图（PDF 第 115 页）](/images/manual/pdf-p115-i00.jpg)
+![原手册插图（PDF 第 115 页）](../images/manual/pdf-p115-i00.jpg)
 
-![原手册插图（PDF 第 115 页）](/images/manual/pdf-p115-i01.jpg)
+![原手册插图（PDF 第 115 页）](../images/manual/pdf-p115-i01.jpg)
 
-![原手册插图（PDF 第 115 页）](/images/manual/pdf-p115-i02.jpg)
+![原手册插图（PDF 第 115 页）](../images/manual/pdf-p115-i02.jpg)
 
 <!-- PDF 第 116 页；印刷第 115 页 -->
 
@@ -88,7 +88,7 @@ Ping（Packet Internet Groper），因特网包探索器，用于测试网络连
 
 2. ping 127.0.0.1 回送地址， ping 回送地址是为了检查本地的 TCP/IP 协议有没有设置好；
 
-![原手册插图（PDF 第 118 页）](/images/manual/pdf-p118-i00.png)
+![原手册插图（PDF 第 118 页）](../images/manual/pdf-p118-i00.png)
 
 <!-- PDF 第 119 页；印刷第 118 页 -->
 
@@ -98,9 +98,9 @@ Ping（Packet Internet Groper），因特网包探索器，用于测试网络连
 
 5. ping 本地 DNS 地址，这样做是为了检查 DNS 是否能够将域名转换为 IP 地址；
 
-![原手册插图（PDF 第 119 页）](/images/manual/pdf-p119-i00.png)
+![原手册插图（PDF 第 119 页）](../images/manual/pdf-p119-i00.png)
 
-![原手册插图（PDF 第 119 页）](/images/manual/pdf-p119-i01.png)
+![原手册插图（PDF 第 119 页）](../images/manual/pdf-p119-i01.png)
 
 <!-- PDF 第 120 页；印刷第 119 页 -->
 
@@ -112,9 +112,9 @@ Ping（Packet Internet Groper），因特网包探索器，用于测试网络连
 
 1. reguest timed out也称请求超时，这个提示可能是由于对方可能装有防火墙或已关机，或者由于本机 IP 不正确和网关设置错误。IP 地址不正确主要是 IP 地址设置错误或 IP 地址冲突，这可以利用 pingipconfig/all 来检查；网关设置错误主要是 网关地址设置不正确或网关没能帮你转发数据， 还有可能是远程网关失效。
 
-![原手册插图（PDF 第 120 页）](/images/manual/pdf-p120-i00.png)
+![原手册插图（PDF 第 120 页）](../images/manual/pdf-p120-i00.png)
 
-![原手册插图（PDF 第 120 页）](/images/manual/pdf-p120-i01.png)
+![原手册插图（PDF 第 120 页）](../images/manual/pdf-p120-i01.png)
 
 <!-- PDF 第 121 页；印刷第 120 页 -->
 
@@ -124,9 +124,9 @@ Ping（Packet Internet Groper），因特网包探索器，用于测试网络连
 
 “.0”可以有条件省略在使用“ping 127.0.0.1”命令来验证本机 TCP/IP 协议是否被正确安装时，发现使用“ping 127.1”也能得到相同结果，为什么会这样呢？这是因为其实这两条命令是相同的，IP 地址是由 32 位二进制数组成的，为了方便记忆，把每 8 位二进制数换算成十进制数，从而构成常见的 IP 地址（如 127.0.0.1），由于 windows 系统具有自动填充“.0”的功能，所以“127.0.0.1”就可以变为“127.1”。但是这种省略是有条件的，在 ping 命令中， 只能将在 IP 地址的最后一个十进制数前出现的一个或多个“.0”省略，也就是说“202.0.9.1”不能写成“202.9.1”。
 
-![原手册插图（PDF 第 121 页）](/images/manual/pdf-p121-i00.jpg)
+![原手册插图（PDF 第 121 页）](../images/manual/pdf-p121-i00.jpg)
 
-![原手册插图（PDF 第 121 页）](/images/manual/pdf-p121-i01.png)
+![原手册插图（PDF 第 121 页）](../images/manual/pdf-p121-i01.png)
 
 <!-- PDF 第 122 页；印刷第 121 页 -->
 

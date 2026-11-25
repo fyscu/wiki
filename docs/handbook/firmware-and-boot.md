@@ -32,7 +32,7 @@ updated: 2026-09-08T00:00:00.000Z
 
 3. BIOS 检测硬件的各种信息
 
-![原手册传统 BIOS 启动流程](/images/manual/boot-process.webp)
+![原手册传统 BIOS 启动流程](../images/manual/boot-process.webp)
 
 <!-- PDF 第 57 页；印刷第 56 页 -->
 
@@ -62,7 +62,7 @@ Windows10 虽然是微软 Windows 操作系统的最新版本，但是其启动�
 
 - 如果计算机中只安装了一个操作系统，或将操作系统列表的显示时间设置为0，那么将不会显示系统启动列表， Windows 启动管理器会直接运行Windows 启动加载器(Windows Boot Loader，文件名为 Winload. exe）。
 
-![原手册插图（PDF 第 58 页）](/images/manual/pdf-p058-i00.jpg)
+![原手册插图（PDF 第 58 页）](../images/manual/pdf-p058-i00.jpg)
 
 <!-- PDF 第 59 页；印刷第 58 页 -->
 
@@ -154,9 +154,9 @@ Award BIOS：按 Del 键或 Ctrl+Alt+Esc 组合键，一般屏幕有提示。AMI
 
 3. 用一些可读写 CMOS 的应用软件部分应用程序（如 QAPLUS）提供了对 CMOS 的读、写、修改功能，通过这类软件可以对一些基本系统配置进行修改。
 
-![原手册插图（PDF 第 63 页）](/images/manual/pdf-p063-i00.png)
+![原手册插图（PDF 第 63 页）](../images/manual/pdf-p063-i00.png)
 
-![原手册插图（PDF 第 63 页）](/images/manual/pdf-p063-i01.jpg)
+![原手册插图（PDF 第 63 页）](../images/manual/pdf-p063-i01.jpg)
 
 <!-- PDF 第 64 页；印刷第 63 页 -->
 

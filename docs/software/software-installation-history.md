@@ -30,17 +30,17 @@ updated: 2026-09-08T00:00:00.000Z
 
 4. 点击安装
 
-![原手册插图（PDF 第 201 页）](/images/manual/pdf-p201-i00.png)
+![原手册插图（PDF 第 201 页）](../images/manual/pdf-p201-i00.png)
 
-![原手册插图（PDF 第 201 页）](/images/manual/pdf-p201-i01.png)
+![原手册插图（PDF 第 201 页）](../images/manual/pdf-p201-i01.png)
 
 <!-- PDF 第 202 页；印刷第 201 页 -->
 
 5. 等待安装完成
 
-![原手册插图（PDF 第 202 页）](/images/manual/pdf-p202-i00.png)
+![原手册插图（PDF 第 202 页）](../images/manual/pdf-p202-i00.png)
 
-![原手册插图（PDF 第 202 页）](/images/manual/pdf-p202-i01.png)
+![原手册插图（PDF 第 202 页）](../images/manual/pdf-p202-i01.png)
 
 <!-- PDF 第 203 页；印刷第 202 页 -->
 
@@ -58,9 +58,9 @@ AutoCAD 是许多工科生都会用到的软件，下面我们以 CAD2018 为例
 
 3. 待解压完成后，选择安装
 
-![原手册插图（PDF 第 203 页）](/images/manual/pdf-p203-i00.png)
+![原手册插图（PDF 第 203 页）](../images/manual/pdf-p203-i00.png)
 
-![原手册插图（PDF 第 203 页）](/images/manual/pdf-p203-i01.png)
+![原手册插图（PDF 第 203 页）](../images/manual/pdf-p203-i01.png)
 
 <!-- PDF 第 204 页；印刷第 203 页 -->
 
@@ -68,9 +68,9 @@ AutoCAD 是许多工科生都会用到的软件，下面我们以 CAD2018 为例
 
 5. 选择要安装的软件和安装路径
 
-![原手册插图（PDF 第 204 页）](/images/manual/pdf-p204-i00.jpg)
+![原手册插图（PDF 第 204 页）](../images/manual/pdf-p204-i00.jpg)
 
-![原手册插图（PDF 第 204 页）](/images/manual/pdf-p204-i01.jpg)
+![原手册插图（PDF 第 204 页）](../images/manual/pdf-p204-i01.jpg)
 
 <!-- PDF 第 205 页；印刷第 204 页 -->
 
@@ -78,17 +78,17 @@ AutoCAD 是许多工科生都会用到的软件，下面我们以 CAD2018 为例
 
 7. 打开 CAD，选择输入序列号
 
-![原手册插图（PDF 第 205 页）](/images/manual/pdf-p205-i00.jpg)
+![原手册插图（PDF 第 205 页）](../images/manual/pdf-p205-i00.jpg)
 
-![原手册插图（PDF 第 205 页）](/images/manual/pdf-p205-i01.jpg)
+![原手册插图（PDF 第 205 页）](../images/manual/pdf-p205-i01.jpg)
 
 <!-- PDF 第 206 页；印刷第 205 页 -->
 
 8. 输入序列号：666-69696969，密钥：001J1
 
-![原手册插图（PDF 第 206 页）](/images/manual/pdf-p206-i00.jpg)
+![原手册插图（PDF 第 206 页）](../images/manual/pdf-p206-i00.jpg)
 
-![原手册插图（PDF 第 206 页）](/images/manual/pdf-p206-i01.png)
+![原手册插图（PDF 第 206 页）](../images/manual/pdf-p206-i01.png)
 
 <!-- PDF 第 207 页；印刷第 206 页 -->
 
@@ -96,8 +96,8 @@ AutoCAD 是许多工科生都会用到的软件，下面我们以 CAD2018 为例
 
 10. 以管理员身份打开注册机，将申请号复制粘贴到请求码一栏，点击生成，再把生成码粘贴到安装程序中，然后点下一步即可。
 
-![原手册插图（PDF 第 207 页）](/images/manual/pdf-p207-i00.jpg)
+![原手册插图（PDF 第 207 页）](../images/manual/pdf-p207-i00.jpg)
 
-![原手册插图（PDF 第 207 页）](/images/manual/pdf-p207-i01.png)
+![原手册插图（PDF 第 207 页）](../images/manual/pdf-p207-i01.png)
 
 来源：四川大学飞扬俱乐部《维修手册》PDF 第 201-207 页（印刷页 200-206）。

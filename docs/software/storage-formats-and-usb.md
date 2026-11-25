@@ -28,7 +28,7 @@ GB：吉字节（GB、Gigabyte，在中国又被称为吉咖字节或京字节�
 
 具体的来说,1GiB=1024MiB，1MiB=1024KiB。他们与 GB、MB、KB 是不一样的，GB 等则是 1000 进位的数据单位。
 
-![原手册插图（PDF 第 208 页）](/images/manual/pdf-p208-i00.jpg)
+![原手册插图（PDF 第 208 页）](../images/manual/pdf-p208-i00.jpg)
 
 <!-- PDF 第 209 页；印刷第 208 页 -->
 
@@ -82,12 +82,12 @@ Ask not what your country can do for you——ask what you can do for yourcountr
 
 3. USB2.0 的标志和 USB3.0 的标志有一定区别，USB3.0 有一个 SS 标志，意思是SuperSpeed，部分的设备上面会有这个标志。
 
-![原手册插图（PDF 第 211 页）](/images/manual/pdf-p211-i00.jpg)
+![原手册插图（PDF 第 211 页）](../images/manual/pdf-p211-i00.jpg)
 
-![原手册插图（PDF 第 211 页）](/images/manual/pdf-p211-i01.jpg)
+![原手册插图（PDF 第 211 页）](../images/manual/pdf-p211-i01.jpg)
 
 <!-- PDF 第 212 页；印刷第 211 页 -->
 
-![原手册插图（PDF 第 212 页）](/images/manual/pdf-p212-i00.jpg)
+![原手册插图（PDF 第 212 页）](../images/manual/pdf-p212-i00.jpg)
 
 来源：四川大学飞扬俱乐部《维修手册》PDF 第 208-212 页（印刷页 207-211）。

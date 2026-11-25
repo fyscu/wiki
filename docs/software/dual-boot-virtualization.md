@@ -50,31 +50,31 @@ updated: 2026-09-08T00:00:00.000Z
 
 我们这一节介绍一下 VM 的大致安装操作。打开 VM，选择“创建新的虚拟机”上面是标准（典型），下面是自定义，一般情况下我们选择“标准”就可以了。
 
-![原手册插图（PDF 第 161 页）](/images/manual/pdf-p161-i00.png)
+![原手册插图（PDF 第 161 页）](../images/manual/pdf-p161-i00.png)
 
 <!-- PDF 第 162 页；印刷第 161 页 -->
 
 这一步是安装操作系统，选择相应的镜像文件即可。为设置用户名和密码（Win 产品密钥可以稍后输入）
 
-![原手册插图（PDF 第 162 页）](/images/manual/pdf-p162-i00.png)
+![原手册插图（PDF 第 162 页）](../images/manual/pdf-p162-i00.png)
 
-![原手册插图（PDF 第 162 页）](/images/manual/pdf-p162-i01.png)
+![原手册插图（PDF 第 162 页）](../images/manual/pdf-p162-i01.png)
 
 <!-- PDF 第 163 页；印刷第 162 页 -->
 
 为虚拟机命名和设置这个虚拟机的存放位置这里是设置虚拟机的硬盘大小，以及文件保存方式，各有优点。
 
-![原手册插图（PDF 第 163 页）](/images/manual/pdf-p163-i00.png)
+![原手册插图（PDF 第 163 页）](../images/manual/pdf-p163-i00.png)
 
-![原手册插图（PDF 第 163 页）](/images/manual/pdf-p163-i01.png)
+![原手册插图（PDF 第 163 页）](../images/manual/pdf-p163-i01.png)
 
 <!-- PDF 第 164 页；印刷第 163 页 -->
 
 创建即将完成
 
-![原手册插图（PDF 第 164 页）](/images/manual/pdf-p164-i00.png)
+![原手册插图（PDF 第 164 页）](../images/manual/pdf-p164-i00.png)
 
-![原手册插图（PDF 第 164 页）](/images/manual/pdf-p164-i01.png)
+![原手册插图（PDF 第 164 页）](../images/manual/pdf-p164-i01.png)
 
 <!-- PDF 第 165 页；印刷第 164 页 -->
 

@@ -21,7 +21,7 @@ updated: 2026-09-07
 | 引导 | 找到系统启动项并加载引导程序 | 存储设备识别、启动顺序、引导配置 |
 | 系统启动 | 系统标识、加载动画、登录界面 | 驱动、更新、系统文件和存储健康 |
 
-![手册中的传统 BIOS 启动流程](/images/manual/boot-process.webp)
+![手册中的传统 BIOS 启动流程](../images/manual/boot-process.webp)
 
 *原手册中的传统 BIOS 流程示意。当前电脑多使用 UEFI，具体界面和步骤因机型而异。*
 

@@ -22,7 +22,7 @@ updated: 2026-09-08T00:00:00.000Z
 
 CCleaner 是一款专业的系统优化和隐私保护工具，主要用来清除 Windows 系统不再使用的垃圾文件和使用者的上网记录，可以对文件夹、历史记录、回收站、注册表等进行垃圾清理。同时可以保护用户隐私，被称为“世界上最受欢迎的 PC 清洁剂”CCleaner 的主要用来清除 Windows 系统不再使用的垃圾文件，以腾出更多硬盘空间，可以对文件夹、历史记录、回收站等进行垃圾清理，并可对注册表进行垃圾项扫描、清理。同样 CCleaner 有免费版和专业版之分，免费版就已经够我们使用了。
 
-![原手册插图（PDF 第 189 页）](/images/manual/pdf-p189-i00.png)
+![原手册插图（PDF 第 189 页）](../images/manual/pdf-p189-i00.png)
 
 <!-- PDF 第 190 页；印刷第 189 页 -->
 
@@ -32,9 +32,9 @@ CCleaner 是一款专业的系统优化和隐私保护工具，主要用来清�
 
 独木成林 DLL 文件智能修复_1.1(可用于重装系统后系统或者安装游戏后提示缺少某一DLL 文件的问题)打开程序输入相应的 DLL 文件名后点击智能修复。（但是对于缺少 DLL 后缀的文件的问题建议直接百度这个文件的名字看它属于哪一个软件，直接重新安装这个软件）
 
-![原手册插图（PDF 第 190 页）](/images/manual/pdf-p190-i00.png)
+![原手册插图（PDF 第 190 页）](../images/manual/pdf-p190-i00.png)
 
-![原手册插图（PDF 第 190 页）](/images/manual/pdf-p190-i01.jpg)
+![原手册插图（PDF 第 190 页）](../images/manual/pdf-p190-i01.jpg)
 
 <!-- PDF 第 191 页；印刷第 190 页 -->
 
@@ -48,9 +48,9 @@ VS 是 Microsoft Visual Studio 的简称。VS 是美国微软公司的开发工�
 
 所写的目标代码适用于微软支持的所有平台，包括 Microsoft Windows、Windows Mobile、WindowsCE、.NET Framework、.NET Compact Framework 和 Microsoft Silverlight 及Windows Phone。Visual Studio 是目前最流行的 Windows 平台应用程序的集成开发环境。最新版本为Visual Studio 2017 RC 版本，基于.NET Framework 4.6 。
 
-![原手册插图（PDF 第 191 页）](/images/manual/pdf-p191-i00.jpg)
+![原手册插图（PDF 第 191 页）](../images/manual/pdf-p191-i00.jpg)
 
-![原手册插图（PDF 第 191 页）](/images/manual/pdf-p191-i01.jpg)
+![原手册插图（PDF 第 191 页）](../images/manual/pdf-p191-i01.jpg)
 
 <!-- PDF 第 192 页；印刷第 191 页 -->
 
@@ -62,7 +62,7 @@ CPU-Z 是目前最常用也是最出名的 CPU 轻量级检测工具，它庞大
 
 我们可以看到它提供了很多的选项卡，使用时只需要选择相应的选项卡就能看到相应的信息了。另外，在窗体的右下角我们可以看到一个“认证”按钮。在联网的情况下，单击这个按钮后，它会把你的 CPU 信息上传到 CPU-Z 的官网进行比对以验明“正身”。
 
-![原手册插图（PDF 第 192 页）](/images/manual/pdf-p192-i00.jpg)
+![原手册插图（PDF 第 192 页）](../images/manual/pdf-p192-i00.jpg)
 
 <!-- PDF 第 193 页；印刷第 192 页 -->
 
@@ -98,19 +98,19 @@ HDtune 是目前比较常用的轻量级硬盘检测工具，它可以进行硬�
 
 基准测试在基准页面选择读取或写入开始测试，蓝色曲线表示传输速率，黄色点表示存取时间（越短越好）。对于一般的硬盘来说蓝色曲线的平滑度能衡量一个硬盘读写的稳定性，固态硬盘的测试曲线除了传输速率要远远高于机械硬盘外也平滑稳定的多。写入测试因为存在风险，我们在测试时最好关闭其他正在运行的程序，除了保证检测结果的准确性外也防止对硬盘造成伤害。
 
-![原手册插图（PDF 第 194 页）](/images/manual/pdf-p194-i00.png)
+![原手册插图（PDF 第 194 页）](../images/manual/pdf-p194-i00.png)
 
 <!-- PDF 第 195 页；印刷第 194 页 -->
 
 查看硬盘信息信息选项卡显示了硬盘的基本信息和相关参数，可以与商家提供的资料进行比对防止上当受骗。
 
-![原手册插图（PDF 第 195 页）](/images/manual/pdf-p195-i00.png)
+![原手册插图（PDF 第 195 页）](../images/manual/pdf-p195-i00.png)
 
 <!-- PDF 第 196 页；印刷第 195 页 -->
 
 磁盘健康
 
-![原手册插图（PDF 第 196 页）](/images/manual/pdf-p196-i00.png)
+![原手册插图（PDF 第 196 页）](../images/manual/pdf-p196-i00.png)
 
 <!-- PDF 第 197 页；印刷第 196 页 -->
 
@@ -118,7 +118,7 @@ HDtune 是目前比较常用的轻量级硬盘检测工具，它可以进行硬�
 
 图上绿色方块表示该区域正常，红色表示存在坏块，如图。
 
-![原手册 HDTune 健康状态页](/images/manual/hdtune-health.jpg)
+![原手册 HDTune 健康状态页](../images/manual/hdtune-health.jpg)
 
 <!-- PDF 第 198 页；印刷第 197 页 -->
 
@@ -130,13 +130,13 @@ AIDA64 是一款测试软硬件系统信息的工具，它可以详细的显示�
 
 AIDA64 提供了一个范围广的特点，协助在超频，硬件错误诊断，压力测试，和传感器监测。它具有独特的能力来评估处理器，系统内存和磁盘驱动器的性能。AIDA64 是兼容所有的 32位和 64 位微软 Windows 操作系统，包括 Windows 7 和 Windows Server 2008R2。
 
-![原手册 HDTune 错误扫描页](/images/manual/hdtune-error-scan.png)
+![原手册 HDTune 错误扫描页](../images/manual/hdtune-error-scan.png)
 
 <!-- PDF 第 199 页；印刷第 198 页 -->
 
-![原手册插图（PDF 第 199 页）](/images/manual/pdf-p199-i00.png)
+![原手册插图（PDF 第 199 页）](../images/manual/pdf-p199-i00.png)
 
-![原手册插图（PDF 第 199 页）](/images/manual/pdf-p199-i01.png)
+![原手册插图（PDF 第 199 页）](../images/manual/pdf-p199-i01.png)
 
 <!-- PDF 第 200 页；印刷第 199 页 -->
 
@@ -146,6 +146,6 @@ GPU 性能检测我们只介绍最权威的显卡跑分软件——3DMark。这�
 
 而最新版本的 3DMark（官方新版的名字就叫 3DMark 而不是 3DMark12 等等）支援桌面与移动平台的跨平台测试，支援 windows、Android、iOS 与 WindowsRT 系统平台的测试，且取消了统一的总分，只提供四个场景分。
 
-![原手册插图（PDF 第 200 页）](/images/manual/pdf-p200-i00.jpg)
+![原手册插图（PDF 第 200 页）](../images/manual/pdf-p200-i00.jpg)
 
 来源：四川大学飞扬俱乐部《维修手册》PDF 第 189-200 页（印刷页 188-199）。

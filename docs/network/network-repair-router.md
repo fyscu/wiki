@@ -32,7 +32,7 @@ updated: 2026-09-08T00:00:00.000Z
 
 - 网卡相关设置一般是检测网卡的无线开关是否处于打开状态；− 检测 IP 地址是否可用，或是否与在用电脑的 IP 地址重合；
 
-![原手册插图（PDF 第 99 页）](/images/manual/pdf-p099-i00.jpg)
+![原手册插图（PDF 第 99 页）](../images/manual/pdf-p099-i00.jpg)
 
 <!-- PDF 第 100 页；印刷第 99 页 -->
 
@@ -58,23 +58,23 @@ updated: 2026-09-08T00:00:00.000Z
 
 3. 选择“更改适配器设置”会出现“本地连接图标”，右键本地连接选择属性
 
-![原手册插图（PDF 第 101 页）](/images/manual/pdf-p101-i00.png)
+![原手册插图（PDF 第 101 页）](../images/manual/pdf-p101-i00.png)
 
-![原手册插图（PDF 第 101 页）](/images/manual/pdf-p101-i01.png)
+![原手册插图（PDF 第 101 页）](../images/manual/pdf-p101-i01.png)
 
 <!-- PDF 第 102 页；印刷第 101 页 -->
 
 4. 找到 internet 网络协议版本，双击进入编辑模式
 
-![原手册插图（PDF 第 102 页）](/images/manual/pdf-p102-i00.png)
+![原手册插图（PDF 第 102 页）](../images/manual/pdf-p102-i00.png)
 
-![原手册插图（PDF 第 102 页）](/images/manual/pdf-p102-i01.png)
+![原手册插图（PDF 第 102 页）](../images/manual/pdf-p102-i01.png)
 
 <!-- PDF 第 103 页；印刷第 102 页 -->
 
 5. 接着我们便可以更改 IP 地址及 DNS 了；如果学校是 DHCP，选择自动获取 ip地址即可。
 
-![原手册插图（PDF 第 103 页）](/images/manual/pdf-p103-i00.png)
+![原手册插图（PDF 第 103 页）](../images/manual/pdf-p103-i00.png)
 
 <!-- PDF 第 104 页；印刷第 103 页 -->
 
@@ -88,9 +88,9 @@ updated: 2026-09-08T00:00:00.000Z
 
 1. 打开设置向导按照提示进行操作，很简单
 
-![原手册插图（PDF 第 104 页）](/images/manual/pdf-p104-i00.png)
+![原手册插图（PDF 第 104 页）](../images/manual/pdf-p104-i00.png)
 
-![原手册插图（PDF 第 104 页）](/images/manual/pdf-p104-i01.jpg)
+![原手册插图（PDF 第 104 页）](../images/manual/pdf-p104-i01.jpg)
 
 <!-- PDF 第 105 页；印刷第 104 页 -->
 
@@ -98,9 +98,9 @@ updated: 2026-09-08T00:00:00.000Z
 
 3. 网络参数：
 
-![原手册插图（PDF 第 105 页）](/images/manual/pdf-p105-i00.png)
+![原手册插图（PDF 第 105 页）](../images/manual/pdf-p105-i00.png)
 
-![原手册插图（PDF 第 105 页）](/images/manual/pdf-p105-i01.jpg)
+![原手册插图（PDF 第 105 页）](../images/manual/pdf-p105-i01.jpg)
 
 <!-- PDF 第 106 页；印刷第 105 页 -->
 
@@ -110,7 +110,7 @@ updated: 2026-09-08T00:00:00.000Z
 
 4. 无线设置：− 基本设置：设置路由器的 SSID（无线网络的名称），信道，模式等，这里最好关闭 SSID 广播− 无线安全设置：关于密码的设置，选择 WPA-PSK/WPA2-PSK 加密，设置设置密码越复杂越好
 
-![原手册插图（PDF 第 106 页）](/images/manual/pdf-p106-i00.jpg)
+![原手册插图（PDF 第 106 页）](../images/manual/pdf-p106-i00.jpg)
 
 <!-- PDF 第 107 页；印刷第 106 页 -->
 
@@ -122,9 +122,9 @@ updated: 2026-09-08T00:00:00.000Z
 
 - DHCP 服务：设置自动分配地址段，地址租期等
 
-![原手册插图（PDF 第 107 页）](/images/manual/pdf-p107-i00.jpg)
+![原手册插图（PDF 第 107 页）](../images/manual/pdf-p107-i00.jpg)
 
-![原手册插图（PDF 第 107 页）](/images/manual/pdf-p107-i01.jpg)
+![原手册插图（PDF 第 107 页）](../images/manual/pdf-p107-i01.jpg)
 
 <!-- PDF 第 108 页；印刷第 107 页 -->
 
@@ -134,9 +134,9 @@ updated: 2026-09-08T00:00:00.000Z
 
 7. IP 带宽控制：− 控制设置：开启或关闭 IP 带宽控制，设置宽带类型− 控制规则：为每个 IP 地址分配宽带设置完成之后既可以按照设置每个人用到不同带宽的宽带，防止合办宽带一个人下载所有人瘫痪。
 
-![原手册插图（PDF 第 108 页）](/images/manual/pdf-p108-i00.jpg)
+![原手册插图（PDF 第 108 页）](../images/manual/pdf-p108-i00.jpg)
 
-![原手册插图（PDF 第 108 页）](/images/manual/pdf-p108-i01.jpg)
+![原手册插图（PDF 第 108 页）](../images/manual/pdf-p108-i01.jpg)
 
 <!-- PDF 第 109 页；印刷第 108 页 -->
 
@@ -148,9 +148,9 @@ updated: 2026-09-08T00:00:00.000Z
 
 11. 如何让路由器更安全：− 隐藏 SSID：（虽然隐藏，但是仍旧可以找出来，只是稍微麻烦一点）使用WPA/WPA2 方式加密，并且选择很复杂的密码（ 虽然可以暴力破解，但是面对很复杂的密码一般要破解好几天甚至上月了）
 
-![原手册插图（PDF 第 109 页）](/images/manual/pdf-p109-i00.jpg)
+![原手册插图（PDF 第 109 页）](../images/manual/pdf-p109-i00.jpg)
 
-![原手册插图（PDF 第 109 页）](/images/manual/pdf-p109-i01.jpg)
+![原手册插图（PDF 第 109 页）](../images/manual/pdf-p109-i01.jpg)
 
 <!-- PDF 第 110 页；印刷第 109 页 -->
 
@@ -170,9 +170,9 @@ updated: 2026-09-08T00:00:00.000Z
 
 2. 运营商绑定 MAC 地址：
 
-![原手册插图（PDF 第 110 页）](/images/manual/pdf-p110-i00.jpg)
+![原手册插图（PDF 第 110 页）](../images/manual/pdf-p110-i00.jpg)
 
-![原手册插图（PDF 第 110 页）](/images/manual/pdf-p110-i01.jpg)
+![原手册插图（PDF 第 110 页）](../images/manual/pdf-p110-i01.jpg)
 
 <!-- PDF 第 111 页；印刷第 110 页 -->
 
@@ -186,8 +186,8 @@ updated: 2026-09-08T00:00:00.000Z
 
 4. 线路适配问题入户网线由于老化、质量太差或线路太长，导致线路衰减过大，从而引起 WAN端口无法获取到参数。尝试调整路由器 WAN 口的速率和双工模式。设置方法：登录路由器管理界面，点击 网络参数➔WAN 口速率模式，模式设置中选择 10Mbps 半双工或 10Mbps 全双工模式，然后点击保存，如下图所示：
 
-![原手册插图（PDF 第 111 页）](/images/manual/pdf-p111-i00.jpg)
+![原手册插图（PDF 第 111 页）](../images/manual/pdf-p111-i00.jpg)
 
-![原手册插图（PDF 第 111 页）](/images/manual/pdf-p111-i01.png)
+![原手册插图（PDF 第 111 页）](../images/manual/pdf-p111-i01.png)
 
 来源：四川大学飞扬俱乐部《维修手册》PDF 第 99-111 页（印刷页 98-110）。

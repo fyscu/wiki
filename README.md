@@ -1,46 +1,25 @@
 # 飞扬 Wiki
 
-四川大学飞扬俱乐部知识库，使用 OI Wiki Material 主题和 Apache Answer 问答服务。
+四川大学飞扬俱乐部的电脑维修知识库，使用 Material for MkDocs 构建。论坛和部署配置位于私有仓库 [fyscu/forum](https://github.com/fyscu/forum)。
 
-[访问网站](https://wiki.feiyang.ac.cn/) · [GitHub 仓库](https://github.com/fyscu/wiki)
+## 本地预览
 
-文章公开阅读，用户验证邮箱后可参与问答，管理员审核首帖。登录支持邮箱或用户名。
+安装 Python 3.12 后，在仓库根目录运行以下命令。
 
-管理员可在[内容管理](https://wiki.feiyang.ac.cn/editor/)编辑文章、调整板块并一键发布，操作见[内容维护](CONTENT_WORKFLOW.md)。
+~~~powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\dev-wiki.ps1
+~~~
 
-## 本机运行
+打开 [本地 Wiki](http://127.0.0.1:8000/)。脚本会安装依赖，保存文档后预览会刷新。
 
-依赖 Node.js 24、Python 3.12 和 Git。以下命令适用于 PowerShell：
+## 编辑文档
 
-```powershell
-git clone https://github.com/fyscu/wiki.git
-cd wiki
-python -m venv .venv
-.venv\Scripts\python -m pip install -r requirements.txt
-npm ci
-npm run dev
-```
+- 文章是 [docs/](docs/) 下的 Markdown。可用文章右上角的铅笔链接在 GitHub 上编辑。需要调整栏目或顺序时，编辑 [mkdocs.yml](mkdocs.yml) 中的 nav。
+- 在 [线上 Sveltia CMS](https://wiki.feiyang.ac.cn/admin/) 用 GitHub 令牌登录。令牌的资源所有者为 fyscu，仓库为 wiki，Contents 需要读写权限。保存会提交到 main。
+- 本地可用 Chrome 或 Edge 打开 [编辑后台](http://127.0.0.1:8000/admin/)，选择 Work with Local Repository，然后选择当前仓库的根目录。
 
-预览地址为 `http://127.0.0.1:5173/`，问答接口默认连接 `127.0.0.1:9080`。修改文章后自动重建，刷新页面查看。
+提交前，在仓库根目录执行严格构建。
 
-## 项目目录
-
-| 目录或文件 | 内容 |
-| --- | --- |
-| `docs/` | 文章、图片和站内页面 |
-| `mkdocs.yml`、`navigation.yml` | 站点配置、文章导航 |
-| `community/` | 账号、问答和内容编辑界面 |
-| `editor/` | 草稿、图片、预览与 Git 发布服务 |
-| `vendor/oi-material/` | OI Wiki 主题 |
-| `overrides/`、`hooks/` | 模板覆盖和构建钩子 |
-| `scripts/`、`deploy/` | 开发与部署工具 |
-| `patches/` | Answer 用户名登录补丁 |
-
-## 文档
-
-- [参与协作](CONTRIBUTING.md)
-- [文章与板块维护](CONTENT_WORKFLOW.md)
-- [部署与恢复](DEPLOYMENT.md)
-- [账号与邮件配置](REGISTRATION.md)
-- [环境速查](ENVIRONMENT.md)
-- [上游来源与许可](THIRD_PARTY.md)
+~~~powershell
+.\.venv\Scripts\python.exe -m mkdocs build --strict
+~~~

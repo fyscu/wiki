@@ -53,7 +53,7 @@ Windows 系统微软公司推出的视窗电脑操作系统名为 Windows。其�
 
 4. 出色的多媒体功能：这也是 Windows 吸引人们的一个亮点。在 Windows 中可以进行音频、视频的编辑/播放工作，可以支持高级的显卡、声卡使其“声
 
-![原手册插图（PDF 第 53 页）](/images/manual/pdf-p053-i00.png)
+![原手册插图（PDF 第 53 页）](../images/manual/pdf-p053-i00.png)
 
 <!-- PDF 第 54 页；印刷第 53 页 -->
 
@@ -63,7 +63,7 @@ Windows 系统微软公司推出的视窗电脑操作系统名为 Windows。其�
 
 6. 众多的应用程序：在 Windows 下有众多的应用程序可以满足用户各方面的需求。Windows 下有数种编程软件，有无数的程序员在为 Windows 编写着程序。Mac OS XMac OS X 是在某些方面全球领先的操作系统。基于坚如磐石的 UNIX 基础，设计简单直观，让处处创新的 Mac 安全，高度兼容，出类拔萃。Mac OS X 既简单易用且功能强大。所有的一切从启动 Mac 后所看到的桌面，到你日常使用的应用程序，都设计得简约精致。无论是浏览网络、查看邮件和外地朋友视频聊天，所有事情的完成都十分简单。当然，简化复杂任务要求尖端科技，而 Mac OS X正拥有这些尖端科技。它不仅使用基础坚实、久经考验的 UNIX 系统提供空前的稳定性，还提供超强的性能、超炫的图形并支持互联网标准。LinuxLinux 是一种自由和开放源码的类 Unix 操作系统，存在着许多不同的 Linux 版本：Redhat、Debian、SuSe、Ubuntu、Deepin 等。但它们都使用了 Linux 内核。Linux
 
-![原手册插图（PDF 第 54 页）](/images/manual/pdf-p054-i00.jpg)
+![原手册插图（PDF 第 54 页）](../images/manual/pdf-p054-i00.jpg)
 
 <!-- PDF 第 55 页；印刷第 54 页 -->
 
@@ -79,6 +79,6 @@ Linux 的基本思想有两点：第一，一切是文件；第二，每个软�
 
 在字符界面用户可以通过键盘输入相应的指令来进行操作。它同时也提供了类似 Windows 图形界面的 X-Window 系统，用户可以使用鼠标对其进行操作。在 X-Window 环境中就和在 Windows 中相似，可以说是一个Linux 版的 Windows。
 
-![原手册插图（PDF 第 55 页）](/images/manual/pdf-p055-i00.jpg)
+![原手册插图（PDF 第 55 页）](../images/manual/pdf-p055-i00.jpg)
 
 来源：四川大学飞扬俱乐部《维修手册》PDF 第 52-55 页（印刷页 51-54）。

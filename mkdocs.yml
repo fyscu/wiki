@@ -1,11 +1,81 @@
 site_name: 飞扬 Wiki
-site_url: https://wiki.feiyang.ac.cn/
-site_description: 四川大学飞扬俱乐部知识库
-site_author: 四川大学飞扬俱乐部
-docs_dir: docs
+site_url: !ENV [WIKI_SITE_URL, "https://wiki.feiyang.ac.cn/"]
+site_description: 四川大学飞扬俱乐部电脑维修知识库
+copyright: Copyright &copy; 四川大学飞扬俱乐部 · Feiyang Wiki
+repo_url: !ENV [GITHUB_REPO_URL, "https://github.com/fyscu/wiki"]
+edit_uri: edit/main/docs/
 site_dir: .site
-use_directory_urls: true
-copyright: Copyright &copy; 2026 四川大学飞扬俱乐部
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: zh
+  logo: images/manual/club-mark.webp
+  favicon: favicon.png
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换浅色模式
+  features:
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+
+plugins:
+  - search:
+      lang: [zh, en]
+  - glightbox
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_css:
+  - stylesheets/extra.css
+
+validation:
+  links:
+    absolute_links: relative_to_docs
+    anchors: warn
+    unrecognized_links: warn
 
 nav:
   - 简介:
@@ -14,62 +84,42 @@ nav:
       - 内容约定: intro/content.md
   - 维修知识:
       - 维修知识概述: handbook/index.md
+      - 维修手册导览: handbook/manual-guide.md
+      - 硬件与存储:
+          - 计算机工作方式与设备形态: handbook/computing-basics.md
+          - 核心硬件与接口识别: handbook/hardware-components.md
+          - 显示器、键盘、鼠标与机身材料: handbook/peripherals-and-display.md
+          - 磁盘物理结构与分区表: handbook/disk-structure.md
+          - 文件系统、分区与 SSD 使用: handbook/file-systems-partitions.md
       - 启动与引导:
           - 计算机启动与排障: handbook/startup.md
-  - 知识问答:
-      - 全部问题: questions.md
-      - 发起提问: ask.md
-      - 审核队列: review.md
-  - 参与贡献:
-      - 参与贡献: contribute.md
+          - 启动链、BIOS 与固件设置: handbook/firmware-and-boot.md
+          - 电源状态、UEFI 与 MBR/GPT 引导: handbook/power-states-uefi.md
+      - 拆装与检测:
+          - 笔记本拆机准备与连接器识别: handbook/laptop-disassembly.md
+          - 笔记本拆机清灰与复装检查: handbook/laptop-cleaning-reassembly.md
+          - 启动介质、分区与数据恢复工具: handbook/repair-media-and-storage-tools.md
+          - 硬件检测、健康检查与压力测试: handbook/diagnostics-and-stress-tools.md
+  - 网络与连接:
+      - 网络寻址、分层与接入方式: network/network-basics.md
+      - 网络修复与路由器配置: network/network-repair-router.md
+      - 四川大学校园网历史配置记录: network/campus-network-history.md
+      - ping 分层诊断与浏览器内核: network/ping-browser.md
+  - 系统与软件:
+      - 操作系统职责与平台差异: software/operating-systems.md
+      - Windows 注册表与 REG 文件: software/windows-registry.md
+      - Windows 安装准备与版本选择: software/windows-installation-basics.md
+      - Windows 安装、引导匹配与系统迁移: software/windows-installation-and-migration.md
+      - 双系统与虚拟机: software/dual-boot-virtualization.md
+      - Mac 恢复与 Boot Camp 历史流程: software/mac-recovery-bootcamp.md
+      - Windows 日常维护与快捷键: software/maintenance-and-shortcuts.md
+      - 日常保养、进水与蓝屏处置: software/maintenance-incident-response.md
+      - Adobe 与 AutoCAD 安装: software/software-installation-history.md
+      - GB、GiB、压缩与 USB 接口: software/storage-formats-and-usb.md
+  - 参与贡献: contribute.md
+  - 问答社区: &bbs_url !ENV [BBS_URL, "https://bbs.feiyang.ac.cn"]
 
-theme:
-  name: null
-  custom_dir: vendor/oi-material/material/templates
-  static_templates: [404.html]
-  language: zh
-  direction: ltr
-  palette:
-    - media: '(prefers-color-scheme: light)'
-      scheme: default
-      primary: white
-      accent: red
-      toggle: { icon: material/weather-sunny, name: 切换深色模式 }
-    - media: '(prefers-color-scheme: dark)'
-      scheme: slate
-      primary: blue
-      accent: blue
-      toggle: { icon: material/weather-night, name: 切换浅色模式 }
-  logo: images/manual/club-mark.webp
-  favicon: images/manual/club-mark.webp
-  font: { text: Fira Sans, code: Fira Mono }
-  icon: {}
-  features: [navigation.tabs, navigation.instant, content.code.copy]
-  include_search_page: false
-  search_index_only: true
-
-plugins:
-  - search:
-      lang: [zh, en]
-      separator: '[\s\-\u200b]+'
-  - toggle-sidebar: { theme: material, toggle_button: all }
-
-hooks: [hooks/site.py]
-extra_css: [_static/css/oi-extra.css, _static/css/feiyang.css]
-markdown_extensions:
-  - admonition
-  - attr_list
-  - def_list
-  - footnotes
-  - toc:
-      permalink: ''
-      slugify: !!python/name:pymdownx.slugs.uslugify
-  - pymdownx.details
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.superfences
-  - pymdownx.tasklist: { custom_checkbox: true }
-  - pymdownx.tabbed: { alternate_style: true }
 extra:
   generator: false
-  pagetime: off
+  bbs_url: *bbs_url
+  discourse_url: !ENV [DISCOURSE_URL, ""]

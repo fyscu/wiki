@@ -59,7 +59,7 @@ UEFI 将提供一个明确的在操作系统与开机时启动固定于硬件中
 
 Java 是以“Byte Code”形式存在的，正是这种没有一步到位的中间性机制，使 Java 可以在多种平台上运行。UEFI 也借鉴了类
 
-![原手册 UEFI 固件接口架构图](/images/manual/uefi.webp)
+![原手册 UEFI 固件接口架构图](../images/manual/uefi.webp)
 
 <!-- PDF 第 67 页；印刷第 66 页 -->
 
@@ -91,7 +91,7 @@ GPT 分区表对分区数量没有限制，但在 windows 系统上最多可以�
 
 UEFI BIOS 可同时识别 MBR 分区和 GPT 分区，所以 UEFI 下，MBR 和 GPT 磁盘都可用于启动操作系统。不过由于微软限制，UEFI 下使用 Windows 安装程序安装操作系统是只能将系统安装在 GPT 磁盘中。Legacy BIOS启动顺序：Legacy BIOS→MBR→“活动的主分区”→\bootmgr→\Boot\BCD→\Windows\system32\winload.exe
 
-![原手册插图（PDF 第 68 页）](/images/manual/pdf-p068-i00.jpg)
+![原手册插图（PDF 第 68 页）](../images/manual/pdf-p068-i00.jpg)
 
 <!-- PDF 第 69 页；印刷第 68 页 -->
 
@@ -105,9 +105,9 @@ UEFI BIOS 可同时识别 MBR 分区和 GPT 分区，所以 UEFI 下，MBR 和 G
 
 需要注意的是：GPT 磁盘格式下，windows 系统的启动文件（bootmgfw.efi、BCD）是存放在一个 FAT 格式的分区里的，有些出厂预装 win8 系统的电脑下将该FAT 分区称之为 ESP 分区或 EFI 分区如下图，ESP 和 EFI 分区一般都是隐藏的 FAT 分区，可以通过 DG 分区工具来创建ESP 分区，还可以用 DG 为该分区添加盘符让其在资源管理器下显现出来。
 
-![原手册插图（PDF 第 70 页）](/images/manual/pdf-p070-i00.png)
+![原手册插图（PDF 第 70 页）](../images/manual/pdf-p070-i00.png)
 
-![原手册插图（PDF 第 70 页）](/images/manual/pdf-p070-i01.png)
+![原手册插图（PDF 第 70 页）](../images/manual/pdf-p070-i01.png)
 
 <!-- PDF 第 71 页；印刷第 70 页 -->
 

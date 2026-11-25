@@ -44,8 +44,8 @@ Mac 系统自带的 Bootcamp 助理其实是个很强大的东西，装 Mac 的�
 
 4. 安装好之后记得用 bootcamp 给系统激活~就大功告成啦。
 
-![原手册插图（PDF 第 166 页）](/images/manual/pdf-p166-i00.jpg)
+![原手册插图（PDF 第 166 页）](../images/manual/pdf-p166-i00.jpg)
 
-![原手册插图（PDF 第 166 页）](/images/manual/pdf-p166-i01.jpg)
+![原手册插图（PDF 第 166 页）](../images/manual/pdf-p166-i01.jpg)
 
 来源：四川大学飞扬俱乐部《维修手册》PDF 第 165-166 页（印刷页 164-165）。
